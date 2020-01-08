@@ -32,7 +32,6 @@ public class Q10546 {
 class StuffedMarathoner {
     private String[] participant;
     private String[] completion;
-    private int i;
 
     StuffedMarathoner(String[] participant, String[] completion) {
         this.participant = participant;
@@ -45,6 +44,7 @@ class StuffedMarathoner {
     }
 
     String printStuffedMarathoner() {
+        int i;
         for (i = 0; i < completion.length; i++) {
             if (!participant[i].equals(completion[i])) {
                 return participant[i];
