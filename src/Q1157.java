@@ -1,82 +1,65 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class Q1157 {
     public static void main(String[] args) throws IOException {
         StudyWord studyWord;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String word = br.readLine();
+        String word = br.readLine().toUpperCase();
 
         studyWord = new StudyWord(word);
 
+        studyWord.searchAlphabetToFindLetter();
+        char theMostUsedLetter = studyWord.printTheMostUsedLetter();
+        System.out.println(theMostUsedLetter);
 
-        studyWord.inputSplitLetterFromUppercase();
-        String letter = studyWord.countEachLetterInMap();
-
-        System.out.println(letter);
     }
 }
 
 class StudyWord {
-    private static final int baseNumOfLetter = 1;
-    private static final String notOneTheMostLetter = "?";
+    private static final int toShiftASCII = 65;
+    private static final char duplication = '?';
+    private static final int numOfAlphabet = 26;
 
     private String word;
-    private char splitLetterFromWord;
-    private int iterEachLetterCountValue = 0;
-    private int theMostUsedLetterValue = 0;
-    private String theMostUsedLetterKey;
-
-    private Map<Character, Integer> mapOfLetter = new HashMap<>();
+    private int[] alphabetASCIIArray = new int[numOfAlphabet];
+    private int toCompareTmpLetter = 0;
+    private boolean flagDuplication = true;
+    private int theMostUsedLetterIdx;
 
     StudyWord(String word) {
-
         this.word = word;
     }
 
-    void inputSplitLetterFromUppercase() {
+    private void countEachAlphabet(int i) {
+        alphabetASCIIArray[word.charAt(i) - toShiftASCII]++;
+    }
+
+    void searchAlphabetToFindLetter() {
         for (int i = 0; i < word.length(); i++) {
-            String changeUppercase = word.replaceAll("[^a-zA-Z]", "").toUpperCase();
-            splitLetterFromWord = changeUppercase.charAt(i);
-            inputEachLetterInMap();
+            countEachAlphabet(i);
+            findTheMostUsedLetter(i);
         }
     }
 
-    private void inputEachLetterInMap() {
-
-        if (flagContainLetter(splitLetterFromWord)) {
-            int num = mapOfLetter.get(splitLetterFromWord);
-            mapOfLetter.put(splitLetterFromWord, baseNumOfLetter + num);
+    private void findTheMostUsedLetter(int i) {
+        if (toCompareTmpLetter == alphabetASCIIArray[word.charAt(i) - toShiftASCII]) {
+            flagDuplication = true;
         }
-        if (!flagContainLetter(splitLetterFromWord)) {
-            mapOfLetter.put(splitLetterFromWord, baseNumOfLetter);
+        if (toCompareTmpLetter < alphabetASCIIArray[word.charAt(i) - toShiftASCII]) {
+            toCompareTmpLetter = alphabetASCIIArray[word.charAt(i) - toShiftASCII];
+            theMostUsedLetterIdx = i;
+            flagDuplication = false;
         }
     }
 
-    private boolean flagContainLetter(char splitUppercaseWord) {
-
-        return mapOfLetter.containsKey(splitUppercaseWord);
-    }
-
-    String countEachLetterInMap() {
-        for (char tmpEachLetterKey : mapOfLetter.keySet()) {
-            iterEachLetterCountValue = mapOfLetter.get(tmpEachLetterKey);
-            findTheMostUsedLetter(tmpEachLetterKey);
+    char printTheMostUsedLetter() {
+        if (!flagDuplication) {
+            char theMostUsedLetter = word.charAt(theMostUsedLetterIdx);
+            return theMostUsedLetter;
         }
-        return theMostUsedLetterKey;
-    }
-
-    private void findTheMostUsedLetter(char tmpEachLetterKey) {
-        if (iterEachLetterCountValue > theMostUsedLetterValue) {
-            theMostUsedLetterValue = iterEachLetterCountValue;
-            theMostUsedLetterKey = Character.toString(tmpEachLetterKey);
-        }
-        else{
-            theMostUsedLetterKey = notOneTheMostLetter;
-        }
+        return duplication;
     }
 }
