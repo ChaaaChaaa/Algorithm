@@ -46,7 +46,6 @@ class StudyWord {
             changeToUppercase(letterToChangeWord);
         }
     }
-
     private void changeToUppercase(char letterToChangeWord) {
         if ((a <= letterToChangeWord) && (letterToChangeWord <= z)) {
             changeUppercase += word.valueOf(letterToChangeWord).toUpperCase();
