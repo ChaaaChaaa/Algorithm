@@ -21,7 +21,7 @@ public class Q1159 {
             baseballMatch.countFirstLetterFromPlayerName();
         }
 
-        baseballMatch.forEachGetFirstLetter();
+        baseballMatch.getForEachFirstLetter();
         String firstLetterOfSelectedPlayerName = baseballMatch.print5PlayersWhoHaveSameFirstLetter();
         System.out.println(firstLetterOfSelectedPlayerName);
     }
@@ -58,7 +58,7 @@ class BaseballMatch {
         return mapOfPlayersName.containsKey(firstLetterOfName);
     }
 
-    void forEachGetFirstLetter() {
+    void getForEachFirstLetter() {
         for (char selectedPlayerTmpKey : mapOfPlayersName.keySet()) {
             int selectedPlayerTmpValue = mapOfPlayersName.get(selectedPlayerTmpKey);
             select5PlayersWhoHaveSameFirstLetter(selectedPlayerTmpKey, selectedPlayerTmpValue);
