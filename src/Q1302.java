@@ -18,7 +18,6 @@ public class Q1302 {
 
         String bestSellerBook = bestSeller.getBookName();
         System.out.println(bestSellerBook);
-
     }
 }
 
@@ -26,9 +25,9 @@ class BestSeller {
     private static final int baseBook = 1;
 
     private Map<String, Integer> bookMap = new HashMap<>();
-    private int value;
-    private String bestSellerBook = "";
-    private int max = 0;
+    private int tmpNumOfSoldBook;
+    private String bestSellerBookKey = "";
+    private int bestSellerBookValue = 0;
 
     void addBook(String bookName) {
         if (checkContainsBook(bookName)) {
@@ -41,27 +40,25 @@ class BestSeller {
     }
 
     private boolean checkContainsBook(String bookName) {
-
         return bookMap.containsKey(bookName);
     }
 
     String getBookName() {
-        for (String key : bookMap.keySet()) {
-            value = bookMap.get(key);
-            toFindMaxNumOfBooks(key);
+        for (String tmpEachBookName : bookMap.keySet()) {
+            tmpNumOfSoldBook = bookMap.get(tmpEachBookName);
+            findBestSellerBook(tmpEachBookName);
         }
-        return bestSellerBook;
+        return  bestSellerBookKey;
     }
 
-    private void toFindMaxNumOfBooks(String key) {
-        if (max == value && bestSellerBook.compareTo(key) > 0) {
-            bestSellerBook = key;
-            max = value;
+    private void findBestSellerBook(String tmpEachBookName) {
+        if (bestSellerBookValue == tmpNumOfSoldBook &&  bestSellerBookKey.compareTo(tmpEachBookName) > 0) {
+            bestSellerBookKey = tmpEachBookName;
+            bestSellerBookValue = tmpNumOfSoldBook;
         }
-        if (max < value) {
-            bestSellerBook = key;
-            max = value;
+        if (bestSellerBookValue < tmpNumOfSoldBook) {
+            bestSellerBookKey = tmpEachBookName;
+            bestSellerBookValue = tmpNumOfSoldBook;
         }
     }
-
 }
