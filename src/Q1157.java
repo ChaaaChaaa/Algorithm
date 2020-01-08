@@ -13,7 +13,7 @@ public class Q1157 {
 
         studyWord = new StudyWord(word);
 
-        studyWord.splitEachLetterFromWord();
+
         studyWord.inputSplitLetterFromUppercase();
         String letter = studyWord.countEachLetterInMap();
 
@@ -22,14 +22,11 @@ public class Q1157 {
 }
 
 class StudyWord {
-    private static final int a = 97;
-    private static final int z = 122;
     private static final int baseNumOfLetter = 1;
     private static final String notOneTheMostLetter = "?";
 
     private String word;
-    private String changeUppercase = "";
-    private char splitUpperCaseWord;
+    private char splitLetterFromWord;
     private int iterEachLetterCountValue = 0;
     private int theMostUsedLetterValue = 0;
     private String theMostUsedLetterKey;
@@ -37,42 +34,31 @@ class StudyWord {
     private Map<Character, Integer> mapOfLetter = new HashMap<>();
 
     StudyWord(String word) {
+
         this.word = word;
     }
 
-    void splitEachLetterFromWord() {
-        for (int i = 0; i < word.length(); i++) {
-            char letterToChangeWord = word.charAt(i);
-            changeToUppercase(letterToChangeWord);
-        }
-    }
-    private void changeToUppercase(char letterToChangeWord) {
-        if ((a <= letterToChangeWord) && (letterToChangeWord <= z)) {
-            changeUppercase += word.valueOf(letterToChangeWord).toUpperCase();
-        } else {
-            changeUppercase += (char) letterToChangeWord;
-        }
-    }
-
     void inputSplitLetterFromUppercase() {
-        for (int i = 0; i < changeUppercase.length(); i++) {
-            splitUpperCaseWord = changeUppercase.charAt(i);
+        for (int i = 0; i < word.length(); i++) {
+            String changeUppercase = word.replaceAll("[^a-zA-Z]", "").toUpperCase();
+            splitLetterFromWord = changeUppercase.charAt(i);
             inputEachLetterInMap();
         }
     }
 
     private void inputEachLetterInMap() {
 
-        if (flagContainLetter(splitUpperCaseWord)) {
-            int num = mapOfLetter.get(splitUpperCaseWord);
-            mapOfLetter.put(splitUpperCaseWord, baseNumOfLetter + num);
+        if (flagContainLetter(splitLetterFromWord)) {
+            int num = mapOfLetter.get(splitLetterFromWord);
+            mapOfLetter.put(splitLetterFromWord, baseNumOfLetter + num);
         }
-        if (!flagContainLetter(splitUpperCaseWord)) {
-            mapOfLetter.put(splitUpperCaseWord, baseNumOfLetter);
+        if (!flagContainLetter(splitLetterFromWord)) {
+            mapOfLetter.put(splitLetterFromWord, baseNumOfLetter);
         }
     }
 
     private boolean flagContainLetter(char splitUppercaseWord) {
+
         return mapOfLetter.containsKey(splitUppercaseWord);
     }
 
