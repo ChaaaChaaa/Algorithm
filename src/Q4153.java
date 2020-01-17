@@ -13,7 +13,7 @@ public class Q4153 {
             int a = sc.nextInt();
             int b = sc.nextInt();
             int c = sc.nextInt();
-System.exit(-1);
+           // System.exit(-1);
             boolean isSucceed = pythagorean.calPythagorean(a, b, c);
             if (!isSucceed) {
                 break;
@@ -49,7 +49,7 @@ class Pythagorean {
 
     boolean isPythagorean(int a, int b, int c) {
         int longLength = getLongLength(a, b, c);
-        if(longLength == a){
+        if (longLength == a) {
 
         }
 
