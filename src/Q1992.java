@@ -22,6 +22,8 @@ public class Q1992 {
 }
 
 class QuadTree {
+    private static final int divide = 2;
+
     private int[][] input;
 
     QuadTree(int[][] input) {
@@ -29,11 +31,11 @@ class QuadTree {
     }
 
     private boolean flagToFindSameMatrix(int row, int col, int size) {
-        int cur = input[row][col];
+        int compareElement = input[row][col];
         for (int i = row; (i < row + size); i++) {
             for (int j = col; (j < col + size); j++) {
 
-                if (cur != input[i][j]) {
+                if (compareElement != input[i][j]) {
                     return false;
                 }
             }
@@ -48,11 +50,11 @@ class QuadTree {
             sb.append(input[row][col]);
         } else {
             sb.append("(");
-            int divide = size / 2;
-            toFindQuadTree(row, col, divide);
-            toFindQuadTree(row, col + divide, divide);
-            toFindQuadTree(row + divide, col, divide);
-            toFindQuadTree(row + divide, col + divide, divide);
+            int divideSize = size / divide;
+            toFindQuadTree(row, col, divideSize);
+            toFindQuadTree(row, col + divideSize, divideSize);
+            toFindQuadTree(row + divideSize, col, divideSize);
+            toFindQuadTree(row + divideSize, col + divideSize, divideSize);
             sb.append(")");
         }
     }
