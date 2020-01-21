@@ -57,22 +57,22 @@ class NumberOfPapers {
         } else {
             int divideSize = size / divideThree;
 
-            toCountSameNumber(row,col,divideSize);
-            toCountSameNumber(row+divideSize,col,divideSize);
-            toCountSameNumber(row+divideTwo*divideSize,col,divideSize);
+            //  방법1
 
-            toCountSameNumber(row,col+divideSize,divideSize);
-            toCountSameNumber(row+divideSize,col+divideSize,divideSize);
-            toCountSameNumber(row+divideTwo*divideSize,col+divideSize,divideSize);
+            toCountSameNumber(row, col, divideSize);
+            toCountSameNumber(row + divideSize, col, divideSize);
+            toCountSameNumber(row + divideTwo * divideSize, col, divideSize);
 
-            toCountSameNumber(row,col+divideTwo*divideSize,divideSize);
-            toCountSameNumber(row+divideSize,col+divideTwo*divideSize,divideSize);
-            toCountSameNumber(row+divideTwo*divideSize,col+divideTwo*divideSize,divideSize);
+            toCountSameNumber(row, col + divideSize, divideSize);
+            toCountSameNumber(row + divideSize, col + divideSize, divideSize);
+            toCountSameNumber(row + divideTwo * divideSize, col + divideSize, divideSize);
+
+            toCountSameNumber(row, col + divideTwo * divideSize, divideSize);
+            toCountSameNumber(row + divideSize, col + divideTwo * divideSize, divideSize);
+            toCountSameNumber(row + divideTwo * divideSize, col + divideTwo * divideSize, divideSize);
 
 
-
-
-
+            //  방법2
 
 //            for (int i = 0; i < divideThree; i++) {
 //                for (int j = 0; j < divideThree; j++) {
