@@ -17,7 +17,7 @@ public class Q1992 {
         }
         QuadTree quadTree = new QuadTree(input);
         quadTree.toFindQuadTree(0, 0, matrixSize);
-        System.out.println(quadTrgite.printQuadTree());
+        System.out.println(quadTree.printQuadTree());
     }
 }
 
