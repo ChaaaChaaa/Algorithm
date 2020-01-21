@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class Q2630 {
+public class Q1992 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int matrixSize = Integer.parseInt(br.readLine().trim());
@@ -15,16 +15,16 @@ public class Q2630 {
                 input[i][j] = line[j] - '0';
             }
         }
-        ColoredPaper coloredPaper = new ColoredPaper(input);
-        coloredPaper.toFindQuadTree(0, 0, matrixSize);
-        System.out.println(coloredPaper.printQuadTree());
+        QuadTree quadTree = new QuadTree(input);
+        quadTree.toFindQuadTree(0, 0, matrixSize);
+        System.out.println(quadTrgite.printQuadTree());
     }
 }
 
-class ColoredPaper {
+class QuadTree {
     private int[][] input;
 
-    ColoredPaper(int[][] input) {
+    QuadTree(int[][] input) {
         this.input = input;
     }
 
@@ -46,10 +46,7 @@ class ColoredPaper {
     void toFindQuadTree(int row, int col, int size) {
         if (flagToFindSameMatrix(row, col, size)) {
             sb.append(input[row][col]);
-        }
-
-
-        else {
+        } else {
             sb.append("(");
             int divide = size / 2;
             toFindQuadTree(row, col, divide);
