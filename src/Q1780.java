@@ -54,7 +54,8 @@ class NumberOfPapers {
 
         if (flagToFindSameNumber(row, col, size)) {
             toCountEachNumber(row, col);
-        } else {
+            return;
+        }
             int divideSize = size / divideThree;
 
             //  방법1
@@ -79,7 +80,7 @@ class NumberOfPapers {
 //                    toCountSameNumber(row + divideSize * i, col + divideSize * j, divideSize);
 //                }
 //            }
-        }
+
     }
 
     private int countOfMinusOne = 0;
