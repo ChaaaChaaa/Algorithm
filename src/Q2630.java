@@ -49,24 +49,26 @@ class ColorPaper {
     void toFindColor(int row, int col, int size) {
         if (flagToFindSameColor(row, col, size)) {
             configureColor(row, col);
-        } else {
-            int divideSize = size / divideTwo;
+            return;
+        }
 
-            //  방법1
+        int divideSize = size / divideTwo;
+
+        //  방법1
 //            toFindColor(row, col, divideSize);
 //            toFindColor(row, col + divideSize, divideSize);
 //            toFindColor(row + divideSize, col, divideSize);
 //            toFindColor(row + divideSize, col + divideSize, divideSize);
 
-            // 방법2
+        // 방법2
 
-            for(int i=0; i<divideTwo; i++){
-                for(int j=0; j<divideTwo; j++){
-                    toFindColor(row+divideSize*i, col+divideSize*j,divideSize);
-                }
+        for (int i = 0; i < divideTwo; i++) {
+            for (int j = 0; j < divideTwo; j++) {
+                toFindColor(row + divideSize * i, col + divideSize * j, divideSize);
             }
         }
     }
+
 
     private void configureColor(int row, int col) {
         if (inputArr[row][col] == blue) {
