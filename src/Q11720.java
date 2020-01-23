@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Q11720 {
     public static void main(String[] args) {
         SumNum sumNum = new SumNum();
-        Scanner sc = new Scanner(System.in);\
+        Scanner sc = new Scanner(System.in);
         int countNum = sc.nextInt();
         String num = sc.next();
 
