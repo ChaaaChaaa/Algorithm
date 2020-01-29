@@ -22,27 +22,33 @@ public class Q10845 {
             }
 
             if (command.equals("pop")) {
-                System.out.println(queue2.deQueue());
+               // System.out.println(queue2.deQueue());
+                bw.write(queue2.deQueue()+""+"\n");
             }
 
             if (command.equals("size")) {
-                System.out.println(queue2.printQueueNumber());
+               // System.out.println(queue2.printQueueNumber());
+                bw.write(queue2.printQueueNumber()+""+"\n");
             }
 
             if (command.equals("empty")) {
-                System.out.println(queue2.empty());
+                //System.out.println(queue2.empty());
+                bw.write(queue2.empty()+""+"\n");
             }
 
             if (command.equals("front")) {
-                System.out.println(queue2.front());
+               // System.out.println(queue2.front());
+                bw.write(queue2.front()+""+"\n");
             }
 
             if (command.equals("back")) {
-                System.out.println(queue2.back());
+               // System.out.println(queue2.back());
+                bw.write(queue2.back()+""+"\n");
             }
+           bw.flush();
         }
 
-        bw.close();
+
 
     }
 }
