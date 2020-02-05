@@ -12,6 +12,7 @@ public class Q2959 {
         Turtle turtle = new Turtle(rectangle);
         turtle.selectionSort();
         System.out.print(turtle.makeRectangle());
+
     }
 }
 
