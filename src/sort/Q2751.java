@@ -14,15 +14,15 @@ public class Q2751 {
             quickSortArr[i] = Integer.parseInt(br.readLine());
         }
 
-        SortNumber3 sortNumber3 = new SortNumber3();
+        SortNumber2 sortNumber2 = new SortNumber2();
         int size = quickSortArr.length - 1;
-        sortNumber3.quickSort(quickSortArr, 0, size);
-        sortNumber3.printSort(quickSortArr);
-        System.out.print(sortNumber3.sb);
+        sortNumber2.quickSort(quickSortArr, 0, size);
+        sortNumber2.printSort(quickSortArr);
+        System.out.print(sortNumber2.sb);
     }
 }
 
-class SortNumber3 {
+class SortNumber2 {
 
     private int partition(int begin, int end, int[] quickSortArr) {
         int left, right, pivot;
@@ -31,10 +31,10 @@ class SortNumber3 {
         pivot = (begin + end) / 2;
 
         while (left < right) {
-            while ((left < right) && (quickSortArr[pivot] > quickSortArr[left])) {
+            while (comparePivotAndLeft(left,right,pivot,quickSortArr)) {
                 left++;
             }
-            while ((left < right) && (quickSortArr[pivot] <= quickSortArr[right])) {
+            while (comparePivotAndRight(left,right,pivot,quickSortArr)) {
                 right--;
             }
             if (left < right) {
@@ -54,6 +54,16 @@ class SortNumber3 {
         quickSortArr[idx1] = quickSortArr[idx2];
         quickSortArr[idx2] = temp;
     }
+
+    private boolean comparePivotAndLeft(int left, int right, int pivot, int[] quickSortArr){
+        return (left < right) && (quickSortArr[pivot] > quickSortArr[left]);
+    }
+
+    private boolean comparePivotAndRight(int left, int right, int pivot, int[] quickSortArr){
+        return (left < right) && (quickSortArr[pivot] <= quickSortArr[right]);
+    }
+
+
 
     void quickSort(int[] quickSortArr, int begin, int end) {
         if (begin < end) {
