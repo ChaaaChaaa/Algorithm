@@ -16,15 +16,13 @@ public class Q11004 {
 
         int[] inputArr = new int[arraySize];
 
-
         for (int i = 0; i < arraySize; i++) {
             inputArr[i] = Integer.parseInt(st.nextToken());
         }
-        NumberOfK numberOfK = new NumberOfK();
+
+        NumberOfK numberOfK = new NumberOfK(findIndexNum);
 
         numberOfK.quickSort(inputArr, 0, inputArr.length - 1);
-
-        numberOfK.printSort(inputArr);
 
         System.out.println(numberOfK.printToFindIdxNum(inputArr, findIndexNum));
 
@@ -33,6 +31,11 @@ public class Q11004 {
 }
 
 class NumberOfK {
+    private int findIndexNum;
+
+    NumberOfK(int findIndexNum){
+        this.findIndexNum = findIndexNum;
+    }
 
     private int partition(int[] inputArr, int begin, int end) {
         int R, L, pivot;
@@ -68,19 +71,18 @@ class NumberOfK {
         if (begin < end) {
             int p;
             p = partition(inputArr, begin, end);
-            quickSort(inputArr, begin, p - 1);
-            quickSort(inputArr, p + 1, end);
+           if(p+1 == findIndexNum){
+               return;
+           }
+          else if(p+1 < findIndexNum){
+               quickSort(inputArr,p+1,end);
+           }
+          else
+               quickSort(inputArr,begin,p-1);
         }
     }
 
     int printToFindIdxNum(int[] inputArr, int findIdxNum) {
         return inputArr[findIdxNum - 1];
-    }
-
-    void printSort(int inputArr[]){
-        for(int a : inputArr){
-            System.out.print(a+" ");
-        }
-        System.out.println();
     }
 }
