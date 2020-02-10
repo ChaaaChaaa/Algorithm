@@ -11,78 +11,68 @@ public class Q11004 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int arraySize = Integer.parseInt(st.nextToken());
         int findIndexNum = Integer.parseInt(st.nextToken());
-        st = new StringTokenizer(br.readLine());
-        br.close();
 
-        int[] inputArr = new int[arraySize];
+        long[] inputArr = new long[arraySize];
+
+        st = new StringTokenizer(br.readLine());
 
         for (int i = 0; i < arraySize; i++) {
             inputArr[i] = Integer.parseInt(st.nextToken());
         }
 
-        NumberOfK numberOfK = new NumberOfK(findIndexNum);
-
-        numberOfK.quickSort(inputArr, 0, inputArr.length - 1);
-
-        System.out.println(numberOfK.printToFindIdxNum(inputArr, findIndexNum));
-
-
+        NumberOfK numberOfK = new NumberOfK(arraySize);
+        numberOfK.mergeSort(inputArr, 0, arraySize - 1);
+        long result = numberOfK.printToFindIdxNum(inputArr, findIndexNum);
+        System.out.println(result);
     }
 }
 
 class NumberOfK {
-    private int findIndexNum;
+    private long[] sortedArr;
 
-    NumberOfK(int findIndexNum){
-        this.findIndexNum = findIndexNum;
+    NumberOfK(int arraySize) {
+        sortedArr = new long[arraySize];
     }
 
-    private int partition(int[] inputArr, int begin, int end) {
-        int R, L, pivot;
-        L = begin;
-        R = end;
-        pivot = (begin + end) / 2;
+    void mergeSort(long[] inputArr, int left, int right) {
+        int middle = (left + right) / 2;
+        if (left < right) {
 
-        while (L < R) {
-            while ((L < R) && (inputArr[L] < inputArr[pivot])) {
-                L++;
-            }
-            while ((L < R) && (inputArr[R] >= inputArr[pivot])) {
-                R--;
-            }
-            if (L < R) {
-                swap(inputArr, L, R);
-                if (L == pivot) {
-                    R = pivot;
-                }
-            }
-        }
-        swap(inputArr, pivot, R);
-        return R;
-    }
-
-    private void swap(int[] inputArr, int idx1, int idx2) {
-        int temp = inputArr[idx1];
-        inputArr[idx1] = inputArr[idx2];
-        inputArr[idx2] = temp;
-    }
-
-    void quickSort(int[] inputArr, int begin, int end) {
-        if (begin < end) {
-            int p;
-            p = partition(inputArr, begin, end);
-           if(p+1 == findIndexNum){
-               return;
-           }
-          else if(p+1 < findIndexNum){
-               quickSort(inputArr,p+1,end);
-           }
-          else
-               quickSort(inputArr,begin,p-1);
+            mergeSort(inputArr, left, middle);
+            mergeSort(inputArr, middle + 1, right);
+            mergeTwoArea(inputArr, left, middle, right);
         }
     }
 
-    int printToFindIdxNum(int[] inputArr, int findIdxNum) {
+    private void mergeTwoArea(long[] inputArr, int left, int middle, int right) {
+        int moveFromLeft = left;
+        int sortedIdx = left;
+        int moveFromRight = middle + 1;
+
+        while (moveFromLeft <= middle && moveFromRight <= right) {
+            if (inputArr[moveFromLeft] <= inputArr[moveFromRight]) {
+                sortedArr[sortedIdx++] = inputArr[moveFromLeft++];
+            } else {
+                sortedArr[sortedIdx++] = inputArr[moveFromRight++];
+            }
+        }
+
+        if (moveFromLeft > middle) {
+            for (int i = moveFromRight; i <= right; i++) {
+                sortedArr[sortedIdx++] = inputArr[i];
+            }
+        } else {
+            for (int i = moveFromLeft; i <= middle; i++) {
+                sortedArr[sortedIdx++] = inputArr[i];
+            }
+        }
+
+        for (int i = left; i <= right; i++) {
+            inputArr[i] = sortedArr[i];
+        }
+    }
+
+    long printToFindIdxNum(long[] inputArr, int findIdxNum) {
         return inputArr[findIdxNum - 1];
     }
 }
