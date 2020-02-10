@@ -9,63 +9,71 @@ public class Q1517 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
+        long[] inputArr = new long[n];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] inputArr = new int[n];
+
         for (int i = 0; i < n; i++) {
             inputArr[i] = Integer.parseInt(st.nextToken());
         }
 
-        QuickSortSwapCount quickSortSwapCount = new QuickSortSwapCount();
-        quickSortSwapCount.quickSort(inputArr, 0, inputArr.length - 1);
-        System.out.println(quickSortSwapCount.result());
+        MergeSortSwapCount mergeSortSwapCount = new MergeSortSwapCount(n);
+        mergeSortSwapCount.mergeSort(inputArr, 0, n - 1);
+        System.out.println(mergeSortSwapCount.printCount());
+
     }
 }
 
-class QuickSortSwapCount {
-    private int countSwap = 0;
+class MergeSortSwapCount {
+    private long countSwap = 0;
+    private long[] sortedArr;
 
-    private int partition(int[] quickArr, int begin, int end) {
-        int pivot, L, R;
-        L = begin;
-        R = end;
-        pivot = (begin + end) / 2;
+    MergeSortSwapCount(int n) {
+        sortedArr = new long[n];
+    }
 
-        while (L < R) {
-            while (L < R && quickArr[L] < quickArr[pivot]) {
-                L++;
+    void mergeTwoArea(long[] unsorted, int left, int middle, int right) {
+        int moveFromLeftArea = left;
+        int sortedIdx = left;
+        int moveFromRightArea = middle + 1;
+        int i;
+
+        while (moveFromLeftArea <= middle && moveFromRightArea <= right) {
+            if (unsorted[moveFromLeftArea] <= unsorted[moveFromRightArea]) {
+                sortedArr[sortedIdx] = unsorted[moveFromLeftArea++];
+            } else {
+                sortedArr[sortedIdx] = unsorted[moveFromRightArea++];
+                countSwap += (middle + 1 - moveFromLeftArea);
             }
-            while (L < R && quickArr[R] >= quickArr[pivot]) {
-                R--;
-            }
+            sortedIdx++;
+        }
 
-            if (L < R) {
-                swap(quickArr, L, R);
-                if (L == pivot) {
-                    R = pivot;
-                }
+        if (moveFromLeftArea > middle) {
+            for (i = moveFromRightArea; i <= right; i++, sortedIdx++) {
+                sortedArr[sortedIdx] = unsorted[i];
+            }
+        } else {
+            for (i = moveFromLeftArea; i <= middle; i++, sortedIdx++) {
+                sortedArr[sortedIdx] = unsorted[i];
             }
         }
-        swap(quickArr, pivot, R);
-        return R;
-    }
 
-    private void swap(int[] quickArr, int idx1, int idx2) {
-        countSwap++;
-        int temp = quickArr[idx1];
-        quickArr[idx1] = quickArr[idx2];
-        quickArr[idx2] = temp;
-    }
-
-    void quickSort(int[] quickArr, int begin, int end) {
-        if (begin < end) {
-            int p = partition(quickArr, begin, end);
-            quickSort(quickArr, begin, p - 1);
-            quickSort(quickArr, p + 1, end);
+        for (i = left; i <= right; i++) {
+            unsorted[i] = sortedArr[i];
         }
     }
 
-    int result() {
+    void mergeSort(long[] unsorted, int left, int right) {
+
+        if (left < right) {
+            int middle = (left + right) / 2;
+            mergeSort(unsorted, left, middle);
+            mergeSort(unsorted, middle + 1, right);
+            mergeTwoArea(unsorted, left, middle, right);
+        }
+    }
+
+    long printCount() {
         return countSwap;
     }
 }
