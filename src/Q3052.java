@@ -16,7 +16,6 @@ public class Q3052 {
         }
 
         remainder.sortArr();
-        remainder.convertNumToString();
         remainder.printResult();
 
 
@@ -27,8 +26,6 @@ class Remainder {
     private static final int DIVIDE_NUM = 42;
     private static final int SET_ARRAY_SIZE = 10;
     private int[] remainderArr;
-    private String[] remainderString = new String[SET_ARRAY_SIZE];
-
 
     Remainder(int[] remainderArr) {
         this.remainderArr = remainderArr;
@@ -39,28 +36,19 @@ class Remainder {
         remainderArr[i] = num % DIVIDE_NUM;
     }
 
-    void convertNumToString() {
-        String str = "";
-        for (int i = 0; i < SET_ARRAY_SIZE; i++) {
-            String temp;
-            temp = remainderArr[i] + str;
-            remainderString[i] = temp;
-        }
-    }
-
     void sortArr() {
         Arrays.sort(remainderArr);
     }
 
     private int compareEachNumber() {
-        int count = 0;
-        String prevStr = "";
-        for (String str : remainderString) {
-            if (prevStr.equals(str)) {
-                continue;
+        int prev = remainderArr[0];
+        int count = 1;
+
+        for (int i = 1; i < SET_ARRAY_SIZE; i++) {
+            if (prev != remainderArr[i]) {
+                count++;
             }
-            count++;
-            prevStr = str;
+            prev = remainderArr[i];
         }
         return count;
     }

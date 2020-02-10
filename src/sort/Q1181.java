@@ -26,9 +26,12 @@ public class Q1181 {
 class SortOfWord {
     private static final String NEW_LINE = "\n";
     private String[] sortWords;
+    private int size;
 
     SortOfWord(int size) {
+        this.size = size;
         sortWords = new String[size];
+
     }
 
     void mergeSort(String[] unSortWords, int left, int right) {
