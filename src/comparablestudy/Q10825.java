@@ -1,4 +1,4 @@
-package sort;
+package comparablestudy;
 
 
 import java.io.BufferedReader;
