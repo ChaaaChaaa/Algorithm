@@ -14,25 +14,25 @@ public class Q2902 {
     }
 }
 
-class KMP{
+class KMP {
     private static final int firstCharacterIdx = 0;
     private String[] eachNameArr;
 
 
-    KMP(String[] eachNameArr){
+    KMP(String[] eachNameArr) {
         this.eachNameArr = eachNameArr;
     }
 
-    private StringBuilder pickFirstCharacter(){
+    private StringBuilder pickFirstCharacter() {
         StringBuilder sb = new StringBuilder();
-        for(String str : eachNameArr){
-          char firstCharacter = str.charAt(firstCharacterIdx);
-          sb.append(firstCharacter);
+        for (String str : eachNameArr) {
+            char firstCharacter = str.charAt(firstCharacterIdx);
+            sb.append(firstCharacter);
         }
         return sb;
     }
 
-    void printResult(){
+    void printResult() {
         System.out.print(pickFirstCharacter());
     }
 }
