@@ -7,7 +7,7 @@ public class Q10808 {
 
         NumberOfAlphabet numberOfAlphabet = new NumberOfAlphabet(word);
 
-
+        numberOfAlphabet.inputStringToArr();
         numberOfAlphabet.countOfAlphabet();
         numberOfAlphabet.printArr();
     }
@@ -15,9 +15,10 @@ public class Q10808 {
 
 class NumberOfAlphabet {
     private static final int NumOfSmallLetter = 26;
-    private static final char convertStringToInt = 'a';
+    private static final int ASCII_smallLetterA = 97;
     private static final String SPACE = " ";
 
+    private char[] alphabetArr;
     private int[] countOfAlphabetArr = new int[NumOfSmallLetter];
     private String word;
     private int size;
@@ -25,13 +26,26 @@ class NumberOfAlphabet {
     NumberOfAlphabet(String word) {
         this.word = word;
         size = word.length();
+        alphabetArr = new char[size];
     }
 
+    void inputStringToArr() {
+        for (int i = 0; i < size; i++) {
+            alphabetArr[i] = word.charAt(i);
+        }
+    }
 
     void countOfAlphabet() {
-      for(int i=0; i<size; i++){
-          countOfAlphabetArr[word.charAt(i)-convertStringToInt]++;
-      }
+        char temp = ASCII_smallLetterA;
+
+        for (int i = 0; i < NumOfSmallLetter ; i++, temp++) {
+
+            for (int j = 0; j < size; j++) {
+                if (temp == alphabetArr[j]) {
+                    countOfAlphabetArr[i] += 1;
+                }
+            }
+        }
     }
 
     void printArr() {
@@ -40,3 +54,5 @@ class NumberOfAlphabet {
         }
     }
 }
+
+
