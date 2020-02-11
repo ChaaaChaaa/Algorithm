@@ -5,7 +5,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
@@ -32,7 +31,7 @@ public class Q10825 {
 
         FunctionQ10825 function = new FunctionQ10825(studentReportCard);
 
-        function.sortArr();
+        function.ComparatorScoreForStudents();
         System.out.print(function.printArr());
 
     }
@@ -42,15 +41,20 @@ public class Q10825 {
 class FunctionQ10825 {
     private static final String NEW_LINE = "\n";
     private ArrayList<ScoreForStudents> studentReportCard;
-    private ComparatorScoreForStudents comparatorScore = new ComparatorScoreForStudents();
+
 
     FunctionQ10825(ArrayList studentReportCard) {
         this.studentReportCard = studentReportCard;
     }
 
 
-    void sortArr() {
-        Collections.sort(studentReportCard, comparatorScore);
+    void ComparatorScoreForStudents() {
+        Comparator<ScoreForStudents> reverseMath = Comparator.comparing(ScoreForStudents::getMathScore).reversed();
+
+        studentReportCard.sort(Comparator.comparing(ScoreForStudents::getKoreanScore).reversed()
+                .thenComparing(ScoreForStudents::getEnglishScore)
+                .thenComparing(reverseMath)
+                .thenComparing(ScoreForStudents::getName));
     }
 
     StringBuilder printArr() {
@@ -96,33 +100,5 @@ class ScoreForStudents {
 
 }
 
-class ComparatorScoreForStudents implements Comparator<ScoreForStudents> {
-
-    @Override
-    public int compare(ScoreForStudents student1, ScoreForStudents student2) {
-        if (student1.getKoreanScore() > student2.getKoreanScore()) {
-            return -1;
-        } else if (student1.getKoreanScore() == student2.getKoreanScore()) {
-            if (student1.getEnglishScore() > student2.getEnglishScore()) {
-                return 1;
-            } else if (student1.getEnglishScore() == student2.getEnglishScore()) {
-
-                if (student1.getMathScore() > student2.getMathScore()) {
-                    return -1;
-                } else if (student1.getMathScore() == student2.getMathScore()) {
-                    return student1.getName().compareTo(student2.getName());
-                } else {
-                    return 0;
-                }
-
-            } else {
-                return -1;
-            }
-        } else {
-            return 1;
-        }
-    }
-
-}
 
 
