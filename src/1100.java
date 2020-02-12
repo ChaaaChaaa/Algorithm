@@ -5,24 +5,24 @@ class Q1100 {
         Scanner sc = new Scanner(System.in);
 
         char[][] chessElement = new char[8][8];
-        Card card = new Card(chessElement);
+        WhiteBoard whiteBoard = new WhiteBoard(chessElement);
 
         for (int i = 0; i < 8; i++) {
             String chessBoard = sc.nextLine();
             for (int j = 0; j < 8; j++) {
-                card.inputArrToChessPieces(i, j,chessBoard);
-                card.countPiecesOnWhiteBoard(i, j);
+                whiteBoard.inputArrToChessPieces(i, j,chessBoard);
+                whiteBoard.countPiecesOnWhiteBoard(i, j);
             }
         }
-        card.printResult();
+        whiteBoard.printResult();
     }
 }
 
-class Card {
+class WhiteBoard {
     private char[][] chessElement;
     private int piecesOnWhiteBoard = 0;
 
-    Card(char[][] chessElement) {
+    WhiteBoard(char[][] chessElement) {
         this.chessElement = chessElement;
     }
 
