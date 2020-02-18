@@ -70,10 +70,6 @@ class SevenDwarfs {
         return (heightOfDwarfs[i] + heightOfDwarfs[j]) == heightDiff;
     }
 
-    private boolean flagHeightIsNotZero(int i, int j) {
-        return heightOfDwarfs[i] != 0 && heightOfDwarfs[j] != 0;
-    }
-
     void printWhiteDwarfs() {
         for (int value : heightOfDwarfs) {
             if (value != 0) {
