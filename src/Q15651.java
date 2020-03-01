@@ -48,6 +48,7 @@ class NAndM3 {
     }
 
     void printResult() {
+
         System.out.print(sb);
     }
 
