@@ -3,20 +3,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Q15650 {
+public class Q15651 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        NAndM2 nAndM2 = new NAndM2(n, m);
-        nAndM2.backTracking(0, 1);
-        nAndM2.printResult();
+        NAndM3 nAndM3 = new NAndM3(n, m);
+        nAndM3.backTracking(0);
+        nAndM3.printResult();
     }
 }
 
-class NAndM2 {
+class NAndM3 {
     private static final int INCREASE_COUNT = 1;
     private int n, m;
     private int[] inputNumList;
@@ -24,13 +24,13 @@ class NAndM2 {
 
     private StringBuilder sb = new StringBuilder();
 
-    NAndM2(int n, int m) {
+    NAndM3(int n, int m) {
         this.n = n;
         this.m = m;
         inputNumList = new int[m];
     }
 
-    void backTracking(int index, int start) {
+    void backTracking(int index) {
 
         if (index == m) {
             for (int numSequence : inputNumList) {
@@ -40,9 +40,9 @@ class NAndM2 {
             return;
         }
 
-        for (int i = start; i <= n; i++) {
-            inputNumList[index] = i;
-            backTracking(index + INCREASE_COUNT, i + INCREASE_COUNT);
+        for (int start = 1;start <= n; start++) {
+            inputNumList[index] = start;
+            backTracking(index + INCREASE_COUNT);
         }
 
     }
