@@ -15,7 +15,8 @@ public class Q10974 {
         }
 
         WholePermutation wholePermutation = new WholePermutation(permutationArr);
-        System.out.print(wholePermutation.printWholePermutation());
+        wholePermutation.printWholePermutation();
+
     }
 }
 
@@ -25,17 +26,16 @@ class WholePermutation {
 
     WholePermutation(int[] permutationArr) {
         this.permutationArr = permutationArr;
-        size = permutationArr.length-1;
+        size = permutationArr.length - 1;
     }
 
-    StringBuilder printWholePermutation() {
-        StringBuilder sb = new StringBuilder();
+    void printWholePermutation() {
         do {
-            for (int element : permutationArr) {
-                sb.append(element).append(" ");
+            for (int i = 0; i <= size; i++) {
+                System.out.print(permutationArr[i] + " ");
             }
-            sb.append("\n");
-            return sb;
+            System.out.println();
+
 
         } while (flagWholePermutation());
     }
@@ -56,6 +56,8 @@ class WholePermutation {
         }
 
         swap(i - 1, j);
+
+        j = size;
 
         while (i < j) {
             swap(i, j);
