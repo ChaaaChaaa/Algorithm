@@ -7,13 +7,13 @@ public class Q15654 {
         int n = sc.nextInt();
         int m = sc.nextInt();
         int inputNumArr[] = new int[10];
-        boolean checkInputNum[] = new boolean[10];
+
 
         for (int i = 0; i < n; i++) {
             inputNumArr[i] = sc.nextInt();
         }
         Arrays.sort(inputNumArr, 0, n);
-        NAndM5 nAndM5 = new NAndM5(n, m, checkInputNum, inputNumArr);
+        NAndM5 nAndM5 = new NAndM5(n, m,  inputNumArr);
         System.out.println(nAndM5.backtracking(0));
 
     }
@@ -27,14 +27,12 @@ class NAndM5 {
     private int m;
     private int[] inputNumArr;
     private int[] ascArr = new int[10];
-    private boolean[] checkInputNum;
+    private boolean[] checkInputNum = new boolean[10];
 
-    NAndM5(int n, int m, boolean[] checkInputNum, int[] inputNumArr) {
+    NAndM5(int n, int m,  int[] inputNumArr) {
         this.n = n;
         this.m = m;
-        this.checkInputNum = checkInputNum;
         this.inputNumArr = inputNumArr;
-
     }
 
     StringBuilder backtracking(int index) {
