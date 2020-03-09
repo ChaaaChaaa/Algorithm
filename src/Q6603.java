@@ -2,12 +2,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Q6603 {
+    private static final int FINISH = 0;
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
             int numOfElementsInSet = sc.nextInt();
-            if (numOfElementsInSet == 0) {
+            if (numOfElementsInSet == FINISH) {
                 break;
             }
 
@@ -26,6 +28,11 @@ public class Q6603 {
 }
 
 class Lotto {
+    private static final String SPACE = " ";
+    private static final int PICK_NUMBER = 6;
+    private static final int NOT_PICK = 0;
+    private static final int PICK = 1;
+
     private int[] numSet;
     private int[] flagToUsePermutationSet;
     private int numOfElementsInSet;
@@ -38,11 +45,11 @@ class Lotto {
 
     void exceptPermutationNum() {
         for (int i = 0; i < numOfElementsInSet; i++) {
-            if (i < numOfElementsInSet - 6) {
-                flagToUsePermutationSet[i] = 0;
+            if (i < numOfElementsInSet - PICK_NUMBER) {
+                flagToUsePermutationSet[i] = NOT_PICK;
             }
-            if (i >= numOfElementsInSet - 6) {
-                flagToUsePermutationSet[i] = 1;
+            if (i >= numOfElementsInSet - PICK_NUMBER) {
+                flagToUsePermutationSet[i] = PICK;
             }
         }
     }
@@ -53,7 +60,7 @@ class Lotto {
         do {
             ArrayList<Integer> curArrList = new ArrayList<>();
             for (int i = 0; i < numOfElementsInSet; i++) {
-                if (flagToUsePermutationSet[i] == 1) {
+                if (flagToUsePermutationSet[i] == PICK) {
                     curArrList.add(numSet[i]);
                 }
             }
@@ -127,7 +134,7 @@ class Lotto {
     void printAnsPermutation() {
         for (ArrayList<Integer> element : ansArrList) {
             for (int x : element) {
-                System.out.print(x + " ");
+                System.out.print(x + SPACE);
             }
             System.out.println();
         }
