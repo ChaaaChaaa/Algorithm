@@ -1,51 +1,59 @@
 import java.util.Scanner;
 
 public class Q1182 {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int S = sc.nextInt();
 
-        int[] sequenceArr = new int[N];
+        int [] sequenceArr = new int[N];
 
-        for (int i = 0; i < N; i++) {
+        for(int i=0; i<N; i++){
             sequenceArr[i] = sc.nextInt();
         }
 
 
-        SumOfPartialSequence sumOfPartialSequence = new SumOfPartialSequence(N, S, sequenceArr);
+        SumOfPartialSequence sumOfPartialSequence = new SumOfPartialSequence(N,S,sequenceArr);
         sumOfPartialSequence.bitMask();
 
     }
 }
 
-class SumOfPartialSequence {
+class SumOfPartialSequence{
+    private static final int startNValue = 1;
 
-    int N;
-    int S;
-    int[] sequenceArr;
+    private static final int initBitMask = 1;
+    private static final int notIncludeNum = 0;
 
-    SumOfPartialSequence(int N, int S, int[] sequenceArr) {
+    private static final int initValue = 0;
+    private static final int increasedValue = 1;
+
+
+
+    private int N;
+    private int S;
+    private int [] sequenceArr;
+
+    SumOfPartialSequence(int N, int S,  int [] sequenceArr){
         this.N = N;
         this.S = S;
         this.sequenceArr = sequenceArr;
     }
 
-    int ans = 0;
+    private int ans = 0;
 
-    void bitMask() {
+    void bitMask(){
 
-        for (int i = 1; i < (1 << N); i++) {
-            int sum = 0;
-            for (int k = 0; k < N; k++) {
-                if ((i & (1 << k)) != 0) {
-
+        for(int i =startNValue; i<(initBitMask<<N); i++){
+            int sum = initValue;
+            for(int k=initValue; k<N; k++){
+                if((i & (initBitMask<<k)) != notIncludeNum ){
                     sum += sequenceArr[k];
                 }
             }
 
-            if (sum == S) {
-                ans += 1;
+            if(sum == S){
+                ans += increasedValue;
             }
         }
         System.out.println(ans);
