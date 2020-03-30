@@ -23,7 +23,7 @@ class SumOfPartialSequence{
     private static final int startNValue = 1;
 
     private static final int initBitMask = 1;
-    private static final int notIncludeNum = 0;
+    private static final int notIncludeElement = 0;
 
     private static final int initValue = 0;
     private static final int increasedValue = 1;
@@ -47,7 +47,7 @@ class SumOfPartialSequence{
         for(int i =startNValue; i<(initBitMask<<N); i++){
             int sum = initValue;
             for(int k=initValue; k<N; k++){
-                if((i & (initBitMask<<k)) != notIncludeNum ){
+                if((i & (initBitMask<<k)) != notIncludeElement ){
                     sum += sequenceArr[k];
                 }
             }
