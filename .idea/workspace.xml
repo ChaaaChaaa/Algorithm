@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a26e056f-8e3c-4c17-b547-6fd9e1c7dfdf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Q1182_Recursion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/Lotto_Recursion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/Lotto_Recursion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/NextPermutation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/NextPermutation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/Q10972.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/Q10972.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/Q1182.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/Q1182.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/SumOfPartialSequence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/SumOfPartialSequence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Q1182.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Q1182.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/LSP/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/LSP/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/SRP/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/factorymethod/anonymous/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/factorymethod/framework/Factory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/factorymethod/framework/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/factorymethod/idcard/IDCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/factorymethod/idcard/IDCardFactory.class" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="BOJ" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1W1ntdtMeLSdWRTl6oMUMgQ5MY9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Q1182_Recursion">
+    <configuration name="Q11723" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q11723" />
+      <module name="DataStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q1182" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q1182" />
+      <module name="DataStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q1182_Recursion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q1182_Recursion" />
+      <module name="DataStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q14889_BitMask" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q14889_BitMask" />
+      <module name="DataStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q6603_Recursion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q6603_Recursion" />
+      <module name="DataStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Q1182_Recursion" />
+        <item itemvalue="Application.Q6603_Recursion" />
+        <item itemvalue="Application.Q14889_BitMask" />
+        <item itemvalue="Application.Q11723" />
+        <item itemvalue="Application.Q1182" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a26e056f-8e3c-4c17-b547-6fd9e1c7dfdf" name="Default Changelist" comment="" />
+      <created>1578326184302</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578326184302</updated>
+      <workItem from="1578326185518" duration="2092000" />
+      <workItem from="1578395660468" duration="44947000" />
+      <workItem from="1578946950038" duration="618000" />
+      <workItem from="1579246556398" duration="5438000" />
+      <workItem from="1579266159444" duration="3223000" />
+      <workItem from="1579486017328" duration="16154000" />
+      <workItem from="1579530689152" duration="8051000" />
+      <workItem from="1579584333576" duration="16515000" />
+      <workItem from="1579925971838" duration="709000" />
+      <workItem from="1580126866809" duration="29220000" />
+      <workItem from="1580311437186" duration="3035000" />
+      <workItem from="1580812717105" duration="37090000" />
+      <workItem from="1581174864163" duration="55403000" />
+      <workItem from="1581509203896" duration="6630000" />
+      <workItem from="1581528605896" duration="12737000" />
+      <workItem from="1581872967942" duration="17239000" />
+      <workItem from="1582036356385" duration="7470000" />
+      <workItem from="1582212047421" duration="9977000" />
+      <workItem from="1582505316230" duration="25976000" />
+      <workItem from="1583026674957" duration="61208000" />
+      <workItem from="1583338736814" duration="9376000" />
+      <workItem from="1583415899511" duration="31084000" />
+      <workItem from="1583640163910" duration="3890000" />
+      <workItem from="1583713181194" duration="19901000" />
+      <workItem from="1583913253958" duration="1958000" />
+      <workItem from="1583993467048" duration="1240000" />
+      <workItem from="1584065415402" duration="8294000" />
+      <workItem from="1584165852595" duration="1429000" />
+      <workItem from="1584280627163" duration="22332000" />
+      <workItem from="1584427587199" duration="13020000" />
+      <workItem from="1584514961309" duration="2799000" />
+      <workItem from="1584545078697" duration="690000" />
+      <workItem from="1584805048114" duration="52446000" />
+      <workItem from="1585642694178" duration="13000" />
+      <workItem from="1585726988785" duration="2047000" />
+      <workItem from="1586332026386" duration="3515000" />
+      <workItem from="1587030505738" duration="9000" />
+      <workItem from="1587468987272" duration="17000" />
+      <workItem from="1587615900893" duration="23438000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/JavaDesignPattern" />
+    </ignored-roots>
+  </component>
+</project>
