@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Q6603 {
+public class Q6603_Permutation {
     private static final int FINISH = 0;
 
     public static void main(String[] args) {
