@@ -1,23 +1,25 @@
 import java.util.Scanner;
 
 public class Q10972 {
+    private static final int START = 0;
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int countNum = sc.nextInt();
         int[] permutationList = new int[countNum];
 
-        for (int i = 0; i < countNum; i++) {
+        for (int i = START; i < countNum; i++) {
             permutationList[i] = sc.nextInt();
         }
-
         NextPermutation nextPermutation = new NextPermutation(permutationList);
         nextPermutation.printPermutation();
-
-
     }
 }
 
 class NextPermutation {
+    private static final String BLANK = " ";
+    private static final int PREV = -1;
+    private static final int ZERO = 0;
     private int[] permutationList;
     private int size;
 
@@ -30,7 +32,7 @@ class NextPermutation {
     void printPermutation() {
         if (flagNextPermutation()) {
             for (int element : permutationList) {
-                System.out.print(element + " ");
+                System.out.print(element + BLANK);
             }
         } else {
             System.out.println("-1");
@@ -40,20 +42,20 @@ class NextPermutation {
 
     private boolean flagNextPermutation() {
         int i = size - 1;
-        while (i > 0 && permutationList[i - 1] >= permutationList[i]) {
+        while (i > ZERO && permutationList[i + PREV] >= permutationList[i]) {
             i -= 1;
         }
 
-        if (i <= 0) {
+        if (i <= ZERO) {
             return false;
         }
 
         int j = size - 1;
-        while (permutationList[j] <= permutationList[i - 1]) {
+        while (permutationList[j] <= permutationList[i + PREV]) {
             j -= 1;
         }
 
-        swap(i - 1, j);
+        swap(i + PREV, j);
 
         j = size - 1;
         while (i < j) {
@@ -62,7 +64,6 @@ class NextPermutation {
             j--;
         }
         return true;
-
     }
 
     private void swap(int i, int j) {
@@ -70,8 +71,6 @@ class NextPermutation {
         permutationList[i] = permutationList[j];
         permutationList[j] = temp;
     }
-
-
 }
 
 
