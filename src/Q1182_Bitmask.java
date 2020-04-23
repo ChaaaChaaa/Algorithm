@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Q1182 {
+public class Q1182_Bitmask {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
@@ -11,7 +11,6 @@ public class Q1182 {
         for(int i=0; i<N; i++){
             sequenceArr[i] = sc.nextInt();
         }
-
 
         SumOfPartialSequence sumOfPartialSequence = new SumOfPartialSequence(N,S,sequenceArr);
         sumOfPartialSequence.bitMask();
