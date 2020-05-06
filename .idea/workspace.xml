@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a26e056f-8e3c-4c17-b547-6fd9e1c7dfdf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Q16197.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Q16198.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/programmers/SecretMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/InsertOperator2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/InsertOperator2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/Lotto_Recursion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/Lotto_Recursion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/NextPermutation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/NextPermutation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/Q10972.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/Q10972.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/Q1182.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/Q15658.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/Q15658.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataStructure/SumOfPartialSequence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataStructure/SumOfPartialSequence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/programmers/DartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/programmers/DartGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/LSP/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/LSP/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/SRP/Employee.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/factorymethod/anonymous/Main.class" beforeDir="false" />
@@ -74,49 +68,67 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Q16198">
-    <configuration name="Q14225_Bitmask" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Q14225_Bitmask" />
-      <module name="DataStructure" />
+  <component name="RunManager" selected="Application.SecretMap">
+    <configuration name="DartGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="programmers.DartGame" />
+      <module name="Algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="programmers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q14888" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Q14888" />
-      <module name="DataStructure" />
+    <configuration name="PickUpDolls" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="programmers.PickUpDolls" />
+      <module name="Algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="programmers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q15658" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Q15658" />
-      <module name="DataStructure" />
+    <configuration name="Q1463" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="boj.Q1463" />
+      <module name="Algorithm" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q16197" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Q16197" />
-      <module name="DataStructure" />
+    <configuration name="Q9465" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="boj.Q9465" />
+      <module name="Algorithm" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q16198" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Q16198" />
-      <module name="DataStructure" />
+    <configuration name="SecretMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="programmers.SecretMap" />
+      <module name="Algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="programmers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Q16198" />
-        <item itemvalue="Application.Q16197" />
-        <item itemvalue="Application.Q15658" />
-        <item itemvalue="Application.Q14888" />
-        <item itemvalue="Application.Q14225_Bitmask" />
+        <item itemvalue="Application.SecretMap" />
+        <item itemvalue="Application.DartGame" />
+        <item itemvalue="Application.PickUpDolls" />
+        <item itemvalue="Application.Q9465" />
+        <item itemvalue="Application.Q1463" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +183,11 @@
       <workItem from="1587615900893" duration="23912000" />
       <workItem from="1587721867584" duration="14610000" />
       <workItem from="1587781612962" duration="367000" />
-      <workItem from="1587912759864" duration="23125000" />
+      <workItem from="1587912759864" duration="23556000" />
+      <workItem from="1588075142118" duration="30000" />
+      <workItem from="1588153060295" duration="9606000" />
+      <workItem from="1588166388753" duration="26458000" />
+      <workItem from="1588688417377" duration="5819000" />
     </task>
     <servers />
   </component>
