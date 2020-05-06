@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a26e056f-8e3c-4c17-b547-6fd9e1c7dfdf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/programmers/SecretMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/programmers/DartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/programmers/DartGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/LSP/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/LSP/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/SRP/Employee.class" beforeDir="false" />
@@ -187,7 +184,7 @@
       <workItem from="1588075142118" duration="30000" />
       <workItem from="1588153060295" duration="9606000" />
       <workItem from="1588166388753" duration="26458000" />
-      <workItem from="1588688417377" duration="5819000" />
+      <workItem from="1588688417377" duration="6080000" />
     </task>
     <servers />
   </component>
