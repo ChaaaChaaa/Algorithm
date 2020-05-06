@@ -2,26 +2,29 @@ package programmers;
 
 
 class DartGame {
+    private static final int RESET_SB = 0;
+    private static final int SCORE_LENGTH = 3;
+
     int solution(String dartResult) {
-        char[] charArray = dartResult.toCharArray();
+        char[] dartResultCharArray = dartResult.toCharArray();
         int i = 0;
-        int[] scores = new int[3];
+        int[] scores = new int[SCORE_LENGTH];
         StringBuilder sb = new StringBuilder();
-        for (char ch : charArray) {
+        for (char ch : dartResultCharArray) {
             switch (ch) {
                 case 'S':
                     scores[i++] = Integer.parseInt(sb.toString());
-                    sb.setLength(0);
+                    sb.setLength(RESET_SB);
                     break;
                 case 'D':
-                    int a = Integer.parseInt(sb.toString());
-                    scores[i++] = a * a;
-                    sb.setLength(0);
+                    int scoreToCheckDouble = Integer.parseInt(sb.toString());
+                    scores[i++] = scoreToCheckDouble * scoreToCheckDouble;
+                    sb.setLength(RESET_SB);
                     break;
                 case 'T':
-                    int b = Integer.parseInt(sb.toString());
-                    scores[i++] = b * b * b;
-                    sb.setLength(0);
+                    int scoreToCheckTriple = Integer.parseInt(sb.toString());
+                    scores[i++] = scoreToCheckTriple * scoreToCheckTriple * scoreToCheckTriple;
+                    sb.setLength(RESET_SB);
                     break;
                 case '*':
                     if (i > 1) {
