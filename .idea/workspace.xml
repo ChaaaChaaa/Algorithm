@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a26e056f-8e3c-4c17-b547-6fd9e1c7dfdf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/programmers/DartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/programmers/DartGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/programmers/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/programmers/Cache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/LSP/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/LSP/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/SRP/Employee.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/factorymethod/anonymous/Main.class" beforeDir="false" />
@@ -37,6 +38,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -53,6 +55,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\java\Algorithms" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -65,7 +72,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SecretMap">
+  <component name="RunManager" selected="Application.Q16916">
     <configuration name="DartGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="programmers.DartGame" />
       <module name="Algorithm" />
@@ -79,8 +86,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PickUpDolls" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="programmers.PickUpDolls" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="programmers.Main" />
       <module name="Algorithm" />
       <extension name="coverage">
         <pattern>
@@ -92,16 +99,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q1463" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="boj.Q1463" />
+    <configuration name="Q16916" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="boj.Q16916" />
       <module name="Algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="boj.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q9465" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="boj.Q9465" />
+    <configuration name="Q401" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.Q401" />
       <module name="Algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="leetcode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -121,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Q16916" />
+        <item itemvalue="Application.Q401" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.SecretMap" />
         <item itemvalue="Application.DartGame" />
-        <item itemvalue="Application.PickUpDolls" />
-        <item itemvalue="Application.Q9465" />
-        <item itemvalue="Application.Q1463" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +203,10 @@
       <workItem from="1588075142118" duration="30000" />
       <workItem from="1588153060295" duration="9606000" />
       <workItem from="1588166388753" duration="26458000" />
-      <workItem from="1588688417377" duration="6080000" />
+      <workItem from="1588688417377" duration="6483000" />
+      <workItem from="1588812814014" duration="5165000" />
+      <workItem from="1589170651264" duration="6939000" />
+      <workItem from="1589937843539" duration="9164000" />
     </task>
     <servers />
   </component>
