@@ -71,5 +71,4 @@ class Trie {
         }
         return currentNode.endOfWord;
     }
-
 }
