@@ -3,6 +3,7 @@ package boj;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -17,7 +18,7 @@ public class Q14425 {
         Trie trie = new Trie();
 
         while (n --> 0){
-           trie.insert(bufferedReader.readLine());
+            trie.insert(bufferedReader.readLine());
         }
         int ans = 0;
         while (m --> 0){
@@ -31,11 +32,11 @@ public class Q14425 {
 
 class Trie {
     private static class TrieNode {
-        Map<Character, TrieNode> children;
+        ArrayList<TrieNode> children;
         boolean endOfWord;
 
         TrieNode() {
-            children = new HashMap<>();
+            children = new ArrayList<>();
             endOfWord = false;
         }
     }
@@ -53,7 +54,7 @@ class Trie {
             TrieNode node = current.children.get(ch);
             if (node == null) {
                 node = new TrieNode();
-                current.children.put(ch, node);
+                current.children.add(node);
             }
             current = node;
         }
