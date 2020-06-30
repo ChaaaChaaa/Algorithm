@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a26e056f-8e3c-4c17-b547-6fd9e1c7dfdf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/boj/Q2776.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/leetcode/Q344.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/programmers/BestAlbum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/programmers/Camouflage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/programmers/DidNotFinishRacePlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/programmers/DidNotFinishRacePlayer2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/programmers/ListOfPhoneNumber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/LSP/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/LSP/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaDesignPatterns/out/production/DataStructure/SRP/Employee.class" beforeDir="false" />
@@ -216,7 +209,7 @@
       <workItem from="1592982510287" duration="640000" />
       <workItem from="1593002813292" duration="89000" />
       <workItem from="1593018776017" duration="1982000" />
-      <workItem from="1593331330967" duration="24596000" />
+      <workItem from="1593331330967" duration="25286000" />
     </task>
     <servers />
   </component>
