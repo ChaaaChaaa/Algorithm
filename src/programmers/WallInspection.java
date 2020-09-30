@@ -1,88 +1,86 @@
 package programmers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.List;
 
 public class WallInspection {
-    static int Nsize;
-    static int[] weakPoint;
-    static LinkedList<Integer> weekExpand;
-    static boolean[] checked;
-    static int result = Integer.MAX_VALUE;
+    int w[],d[];
+    int max = Integer.MAX_VALUE;
+    List<int[]> list = new ArrayList<>();
 
-    public static int solution(int n, int[] week, int[] dist) {
-        int answer = 0;
-        Nsize = 0;
-        weakPoint = week.clone();
+    int solution(int n, int[] weak, int[] dist){
+
+        int weakSize = weak.length;
+        int distSize = dist.length;
+        w = new int[2*weakSize];
+
+        int ret = max;
+
+        for(int i=0; i<weakSize; i++){
+            w[i] = weak[i];
+            w[i+weakSize] = w[i]+n;
+        }
+
         Arrays.sort(dist);
-        checked = new boolean[dist.length];
+        permutation(0,new int[distSize], new boolean[distSize],distSize);
 
-        weekExpand = new LinkedList<>();
-        for (int i = 0; i < weakPoint.length; i++) {
-            weekExpand.add(weakPoint[i]);
+        for(int i=0; i<weakSize; i++){
+            for(int j=0; j<list.size(); j++){
+                ret = Math.min(ret,inject(i,list.get(j),weakSize));
+            }
         }
 
-        for (int i = 0; i < weakPoint.length; i++) {
-            weekExpand.add(weakPoint[i] + Nsize);
+        if(ret == max){
+            return  -1;
         }
 
-        int count = 0;
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        makePermutation(0, count, linkedList, dist);
-        if (result == Integer.MAX_VALUE) {
-            answer -= 1;
-        } else {
-            answer = result;
+        else {
+            return ret;
         }
-        return answer;
+
     }
 
-    private static void makePermutation(int index, int count, LinkedList<Integer> linkedList, int[] dist) {
-        if (count == dist.length) {
-            deterPossible(linkedList);
+    int inject(int s, int[] friends,int weakSize){
+        int p =0, i,a;
+        for(i =0; i<friends.length; i++){
+            a = w[s+p];
+            while (p<weakSize && w[s+p] <= a+friends[i]){
+                p++;
+            }
+            if(p==weakSize){
+                return i+1;
+            }
+        }
+        return max;
+    }
+
+    void permutation(int depth, int[] make, boolean[] use,int distSize){
+        if(depth == distSize){
+            int [] tmp = new int[distSize];
+            for(int i=0; i<distSize; i++){
+                tmp[i] = make[i];
+            }
+            list.add(tmp);
             return;
         }
-        for (int i = 0; i < dist.length; i++) {
-            if (!checked[i]) {
-                checked[i] = true;
-                linkedList.add(dist[i]);
-                makePermutation(i, count + 1, linkedList, dist);
-                linkedList.removeLast();
-                checked[i] = false;
+        for(int i=0; i<distSize; i++){
+            make[depth] = d[i];
+            if(!use[i]){
+                use[i] = true;
+                permutation(depth+1,make,use,distSize);
+                use[i] =false;
             }
         }
     }
 
-    private static void deterPossible(LinkedList<Integer> friendLists) {
-        for (int i = 0; i < weakPoint.length; i++) {
-            int index = 0;
-            int startPoint = weekExpand.get(i);
-            boolean mark = false;
-
-            for (int j = i; j < i + weakPoint.length; j++) {
-                if (weekExpand.get(j) - startPoint > friendLists.get(index)) {
-                    startPoint = weekExpand.get(j);
-                    index++;
-
-                    if (index == friendLists.size()) {
-                        mark = true;
-                        break;
-                    }
-                }
-            }
-            if (!mark) {
-                result = Math.min(result, index + 1);
-            }
-            return;
-        }
-    }
 
     public static void main(String[] args) {
         int n = 12;
         int[] weak = {1, 5, 6, 10};
         int[] dist = {1, 2, 3, 4};
-
-        int answer = solution(n, weak, dist);
+        WallInspection wallInspection = new WallInspection();
+        int answer = wallInspection.solution(n, weak, dist);
         System.out.println(answer);
     }
 }
