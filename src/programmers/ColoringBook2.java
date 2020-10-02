@@ -39,26 +39,16 @@ public class ColoringBook2 {
         queue.add(start);
 
         while (!queue.isEmpty()){
-            System.out.println(queue);
 
             Position position = queue.remove();
-            System.out.println(queue);
 
             for(int i=0; i<4; i++){
 
                 int nx = dx[i]+position.x;
                 int ny = dy[i]+position.y;
 
-                System.out.println("3.  position.x : "+position.x+" position.y : "+position.y+" i : "+i);
-                System.out.println(queue);
                 if(0<= nx && nx<picture.length && 0<= ny&& ny<picture[0].length){
                     if(!visited[nx][ny] && picture[nx][ny] == picture[position.x][position.y]){
-                        System.out.println(visited[nx][ny]);
-                        System.out.println(picture[nx][ny]);
-                        System.out.println(picture[position.x][position.y]);
-
-
-
                         visited[nx][ny] = true;
                         queue.add(new Position(nx,ny));
                         area++;
