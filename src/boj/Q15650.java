@@ -22,6 +22,7 @@ class NAndM2 {
     private static final int INCREASE_COUNT = 1;
     private int n, m;
     private int[] inputNumList;
+    private boolean[] checkList ;
 
 
     private StringBuilder sb = new StringBuilder();
@@ -30,6 +31,7 @@ class NAndM2 {
         this.n = n;
         this.m = m;
         inputNumList = new int[m];
+        checkList = new boolean[n + 1];
     }
 
     void backTracking(int index, int start) {
@@ -42,9 +44,19 @@ class NAndM2 {
             return;
         }
 
+//        for (int i = start; i <= n; i++) {
+//            inputNumList[index] = i;
+//            backTracking(index + INCREASE_COUNT, i + INCREASE_COUNT);
+//        }
+
         for (int i = start; i <= n; i++) {
-            inputNumList[index] = i;
-            backTracking(index + INCREASE_COUNT, i + INCREASE_COUNT);
+
+            if (!checkList[i]) {
+                checkList[i] = true;
+                inputNumList[index] = i;
+                backTracking(index + INCREASE_COUNT, i + INCREASE_COUNT);
+                checkList[i] = false;
+            }
         }
 
     }

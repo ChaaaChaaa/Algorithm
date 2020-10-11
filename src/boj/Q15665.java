@@ -3,7 +3,7 @@ package boj;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Q15663 {
+public class Q15665 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -16,53 +16,46 @@ public class Q15663 {
         }
         Arrays.sort(inputNumArr, 0, n);
 
-        NAndM9 nAndM9 = new NAndM9(n, m, inputNumArr);
+        NAndM11 nAndM11 = new NAndM11(n, m, inputNumArr);
 
-        nAndM9.backTracking(0);
+        System.out.println( nAndM11.backTracking(0));
     }
+
 }
 
-class NAndM9 {
+class NAndM11 {
     private int n;
     private int m;
     private int[] inputNumArr;
     private int[] ascArr;
-    private boolean[] check;
 
 
-    NAndM9(int n, int m, int[] inputNumArr) {
+    NAndM11(int n, int m, int[] inputNumArr) {
         this.n = n;
         this.m = m;
         this.inputNumArr = inputNumArr;
         ascArr = new int[m];
-        check = new boolean[n];
     }
 
 
-    void backTracking(int index) {
-
-
+    StringBuilder backTracking(int index) {
         if (index == m) {
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < m; i++) {
-                System.out.print(ascArr[i] + " ");
+               sb.append(ascArr[i]).append(" ");
             }
-            System.out.println();
-            return;
+            sb.append("\n");
+            return sb;
         }
 
+        StringBuilder ans = new StringBuilder();
         for (int i = 0; i < n; i++) {
-
-            if (!check[i]) {
-                check[i] = true;
-
-                if (!(ascArr[index] == inputNumArr[i])) {
-
-                    ascArr[index] = inputNumArr[i];
-                    backTracking(index + 1);
-                }
-                check[i] = false;
+            if (!(ascArr[index] == inputNumArr[i])) {
+                ascArr[index] = inputNumArr[i];
+                ans.append( backTracking(index + 1));
             }
         }
         ascArr[index] = 0;
+        return ans;
     }
 }

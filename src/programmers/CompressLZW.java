@@ -51,10 +51,12 @@ public class CompressLZW {
         CompressLZW compressLZW = new CompressLZW();
         String msg = "KAKAO";
 
-        for (int element : compressLZW.solution(msg)) {
-            System.out.print(element + " ");
-        }
-        System.out.println();
+//        for (int element : compressLZW.solution(msg)) {
+//            System.out.print(element + " ");
+//        }
+//        System.out.println();
+
+
     }
 }
 
