@@ -19,7 +19,7 @@ public class Cache {
 
         for (int i = 0; i < cities.length; i++) {
             String city = cities[i].toUpperCase();
-
+            System.out.print(cities[i]+" , ");
             if (cache.remove(city)) {
                 cache.addFirst(city);
                 answer += HIT;
@@ -33,5 +33,13 @@ public class Cache {
             }
         }
         return answer;
+    }
+
+    public static void main(String[] args) {
+        Cache cache = new Cache();
+
+       int cacheSize = 3;
+       String[] cities = {"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"};
+       cache.solution(cacheSize,cities);
     }
 }

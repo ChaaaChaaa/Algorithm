@@ -54,6 +54,11 @@ class NAndM1 {
                 backTracking(index + INCREASE_COUNT);
                 checkList[i] = false;
             }
+
+
+//            inputNumList[index] = i;
+//            backTracking(index + INCREASE_COUNT, i + INCREASE_COUNT);
+//        }
         }
     }
 

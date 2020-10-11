@@ -3,7 +3,7 @@ package boj;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Q15663 {
+public class Q15664 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -16,13 +16,13 @@ public class Q15663 {
         }
         Arrays.sort(inputNumArr, 0, n);
 
-        NAndM9 nAndM9 = new NAndM9(n, m, inputNumArr);
+        NAndM10 nAndM10 = new NAndM10(n, m, inputNumArr);
 
-        nAndM9.backTracking(0);
+        nAndM10.backTracking(0,0);
     }
-}
 
-class NAndM9 {
+}
+class NAndM10 {
     private int n;
     private int m;
     private int[] inputNumArr;
@@ -30,7 +30,7 @@ class NAndM9 {
     private boolean[] check;
 
 
-    NAndM9(int n, int m, int[] inputNumArr) {
+    NAndM10(int n, int m, int[] inputNumArr) {
         this.n = n;
         this.m = m;
         this.inputNumArr = inputNumArr;
@@ -39,7 +39,7 @@ class NAndM9 {
     }
 
 
-    void backTracking(int index) {
+    void backTracking(int index, int start) {
 
 
         if (index == m) {
@@ -50,7 +50,7 @@ class NAndM9 {
             return;
         }
 
-        for (int i = 0; i < n; i++) {
+        for (int i = start; i < n; i++) {
 
             if (!check[i]) {
                 check[i] = true;
@@ -58,7 +58,7 @@ class NAndM9 {
                 if (!(ascArr[index] == inputNumArr[i])) {
 
                     ascArr[index] = inputNumArr[i];
-                    backTracking(index + 1);
+                    backTracking(index + 1,i);
                 }
                 check[i] = false;
             }
