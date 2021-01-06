@@ -2,19 +2,6 @@ package leetcode;
 
 import java.util.Stack;
 
-class TreeNode{
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int val){
-        this.val = val;
-    }
-    TreeNode(int val, TreeNode left, TreeNode right){
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
 public class Q897 {
     public TreeNode increasingBST(TreeNode root){
         TreeNode head = null,pre = null;
