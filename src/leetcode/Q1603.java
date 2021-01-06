@@ -4,6 +4,9 @@ public class Q1603 {
     public static void main(String[] args) {
         Q1603 q1603 = new Q1603(1, 2, 0);
         q1603.addCar(1);
+        q1603.addCar(2);
+        q1603.addCar(3);
+        q1603.addCar(1);
     }
 
     int[] count;
