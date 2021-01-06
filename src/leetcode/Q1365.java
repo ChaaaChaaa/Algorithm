@@ -5,7 +5,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Q1365 {
-    public int[] smallerNumbersThanCurrent(int[] nums) {
+    public static void main(String[] args){
+        int [] nums = {8,1,2,2,3};
+        System.out.println(Arrays.toString(smallerNumbersThanCurrent(nums)));
+    }
+
+    public static int[] smallerNumbersThanCurrent(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         int[] copy = nums.clone();
 
