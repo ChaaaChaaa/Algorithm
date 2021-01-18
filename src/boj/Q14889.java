@@ -44,7 +44,7 @@ class StartToLink {
             for (int i = 0; i < num; i++) {
                 for (int j = i + 1; j < num; j++) {
                     if (isNotChosenTeam(i, j)) {
-                        continue;
+                        continue; //다시 제어문 처음으로
                     }
                     if (isTeamStart[i]) {
                         sumA += a[i][j] + a[j][i];
@@ -55,7 +55,7 @@ class StartToLink {
                 }
             }
             compareMinValue(sumA, sumB);
-            return;
+            return; //해당 함수 탈출
         }
         recursion(countToMakeTwoTeam, changeToTrue);
     }

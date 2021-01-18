@@ -40,7 +40,7 @@ class StartAndLinkBitMask {
             divideTeamMember(i, first, second);
 
             if (first.size() != num / 2) {
-                continue;
+                continue; //다시 제어문 처음으로
             }
 
             inputEachTeam(first, second);
@@ -51,7 +51,7 @@ class StartAndLinkBitMask {
 
     private void divideTeamMember(int i, ArrayList<Integer> first, ArrayList<Integer> second) {
         for (int j = 0; j < num; j++) {
-            if ((i & (1 << j)) == 0) {
+            if ((i & (1 << j)) == 0) { //0이면 없다
                 first.add(j);
             }
             if ((i & (1 << j)) != 0) {
@@ -67,7 +67,7 @@ class StartAndLinkBitMask {
 
         for (int l1 = 0; l1 < num / 2; l1++) {
             for (int l2 = 0; l2 < num / 2; l2++) {
-                if (l1 == l2) {
+                if (l1 == l2) { //같으면 0
                     continue;
                 }
                 team1 += teamAbility[first.get(l1)][first.get(l2)];
