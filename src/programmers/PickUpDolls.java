@@ -23,13 +23,10 @@ public class PickUpDolls {
     }
 
     private static int solution(int[][] board, int[] moves) {
-
         int answer = 0;
         Stack<Integer> stack = new Stack<>();
-
         for (int move : moves) {
             for (int i = 0; i < board.length; i++) {
-
                 if (board[i][move - TO_LINE_UP] == NONE_ELEMENT) {
                     continue;
                 }
@@ -47,5 +44,4 @@ public class PickUpDolls {
         }
         return answer;
     }
-
 }
