@@ -27,17 +27,17 @@ public class Q12886 {
             return ;
         }
 
-        if(a<b && !visited[a][b]){
-            visited[a][b] = true;
-            visited[b][a] = true;
-            dfs(2*a,b-a,c,visited);
-        }
-
-        if(b<a && !visited[b][a]){
-            visited[a][b] = true;
-            visited[b][a] = true;
-            dfs(a-b,2*b,c,visited);
-        }
+//        if(a<b && !visited[a][b]){
+//            visited[a][b] = true;
+//            visited[b][a] = true;
+//            dfs(2*a,b-a,c,visited);
+//        }
+//
+//        if(b<a && !visited[b][a]){
+//            visited[a][b] = true;
+//            visited[b][a] = true;
+//            dfs(a-b,2*b,c,visited);
+//        }
 
         if(a<c && !visited[a][c]){
             visited[a][b] = true;
@@ -57,6 +57,4 @@ public class Q12886 {
             dfs(a,2*b,c-b,visited);
         }
     }
-
-
 }

@@ -6,106 +6,98 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 
 public class Q14502 {
-    private static final int[] dx =  {0,0,1,-1};
-    private static final int[] dy = {1,-1,0,0};
+    private static final int[] dx = {0, 0, 1, -1};
+    private static final int[] dy = {1, -1, 0, 0};
     private static final int BLANK = 0;
-    private static final int WALL = 1;
+    private static int wallCnt = 0;
     private static final int VIRUS = 2;
-    private static int[][] inputArr;
-    private static int[][] map;
+    private static final int WALL = 1;
+    private static int[][] virusMap;
     private static int n, m;
-    private static int answer= Integer.MIN_VALUE;
-
-
+    private static int answer = Integer.MIN_VALUE;
+    private static ArrayList<Position> virus;
 
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        m = sc.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        inputArr = new int[n][m];
-        map = new int[n][m];
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
 
-        for(int i = 0; i < n; i++)
-            for(int j = 0 ; j < m; j++)
-                inputArr[i][j] = map[i][j] = sc.nextInt();
+        virusMap = new int[n][m];
+        virus = new ArrayList<>();
 
-
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                if(inputArr[i][j] == BLANK){
-                    map[i][j] = WALL;
-                    dfs(1);
-                    map[i][j] = BLANK;
+        for (int i = 0; i < n; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < m; j++) {
+                virusMap[i][j] = Integer.parseInt(st.nextToken());
+                if (virusMap[i][j] == WALL) {
+                    wallCnt++;
+                }
+                if (virusMap[i][j] == VIRUS) {
+                    virus.add(new Position(i, j));
                 }
             }
         }
+        setUpWall(0);
         System.out.println(answer);
     }
 
-    private static void dfs(int cnt) {
-        if(cnt == 3){
-            bfs();
+    private static void setUpWall(int cnt) {
+        if (cnt == 3) {
+            spreadVirus();
             return;
         }
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                if(map[i][j] == BLANK){
-                    map[i][j] = WALL;
-                    dfs(cnt+1);
-                    map[i][j] = BLANK;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (virusMap[i][j] == BLANK) {
+                    virusMap[i][j] = WALL;
+                    setUpWall(cnt + 1);
+                    virusMap[i][j] = BLANK;
                 }
             }
         }
     }
 
-    private static void bfs(){
-        int[][] virusMap = new int[n][m];
-        for (int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                virusMap[i][j] = map[i][j];
-            }
-        }
+    private static void spreadVirus() {
         Queue<Position> queue = new LinkedList<>();
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                if(virusMap[i][j] == VIRUS){
-                    queue.add(new Position(i,j));
-                }
-            }
-        }
+        int virusCnt = 0;
+        boolean[][] visit = new boolean[n][m];
 
-        while (!queue.isEmpty()){
-            Position position = queue.remove();
 
-            for(int i=0; i<4; i++){
-                int nx = dx[i]+position.x;
-                int ny = dy[i]+position.y;
+        for (int i = 0; i < virus.size(); i++) {
+            Position originalVirusPosition = virus.get(i);
+            queue.add(new Position(originalVirusPosition.x, originalVirusPosition.y));
 
-                if(0<=nx&&nx<n&&0<=ny&&ny<m){
-                    if(virusMap[nx][ny] == BLANK){
-                        virusMap[nx][ny]  = VIRUS;
-                        queue.add(new Position(nx,ny));
+            while (!queue.isEmpty()) {
+                Position current = queue.poll();
+
+                for (int j = 0; j < 4; j++) {
+                    int nx = dx[j] + current.x;
+                    int ny = dy[j] + current.y;
+
+                    if (!isWall(nx, ny) || visit[nx][ny] || virusMap[nx][ny] != 0) {
+                        continue;
                     }
+
+                    visit[nx][ny] = true;
+                    virusCnt++;
+                    queue.add(new Position(nx, ny));
                 }
             }
         }
-        calAnswer(virusMap);
+        calAnswer(virusCnt);
     }
 
-    public static void calAnswer(int[][] virusMap){
-        int cnt= 0;
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                if(virusMap[i][j] == BLANK){
-                    ++cnt;
-                }
-            }
-        }
-        answer = Math.max(cnt,answer);
+    private static boolean isWall(int x, int y) {
+        return ((x >= 0 && x < n) && (y >= 0 && y < m));
+    }
+
+    public static void calAnswer(int virusCnt) {
+        answer = Math.max(answer, (n * m) - wallCnt - 3 - virusCnt - virus.size());
     }
 }

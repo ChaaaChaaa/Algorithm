@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Q131 {
     public static void main(String[] args) {
-        String s = "aab";
+        String s = "ababccc";
         System.out.println(partition(s));
 
     }
@@ -26,7 +26,7 @@ public class Q131 {
         } else {
             for (int i = start; i < s.length(); i++) {
                 if (!isPalindrome(s, start, i)) {
-                    System.out.println("OUT s.substring(start, i + 1) "+s.substring(start, i + 1)+" start, i + 1 : "+start+" /i  :"+(i));
+                    //System.out.println("OUT s.substring(start, i + 1) "+s.substring(start, i + 1)+" start, i + 1 : "+start+" /i  :"+(i));
 
                 }
 
@@ -42,10 +42,10 @@ public class Q131 {
 
     public static boolean isPalindrome(String s, int low, int high) {
         while (low < high) {
-            System.out.println("low : "+low+" high: "+high+" s.charAt(low) :"+s.charAt(low)+" s.charAt(high) :"+s.charAt(high));
+            //System.out.println("low : "+low+" high: "+high+" s.charAt(low) :"+s.charAt(low)+" s.charAt(high) :"+s.charAt(high));
 
             if (s.charAt(low++) != s.charAt(high--)) {
-                System.out.println("OUT  low : "+low+" high: "+high+" s.charAt(low) :"+s.charAt(low)+" s.charAt(high) :"+s.charAt(high));
+               // System.out.println("OUT  low : "+low+" high: "+high+" s.charAt(low) :"+s.charAt(low)+" s.charAt(high) :"+s.charAt(high));
                 return false;
             }
 

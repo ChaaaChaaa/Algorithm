@@ -10,7 +10,10 @@ public class Q136 {
         int result = 0;
 
         for (int num : nums) {
+            System.out.println(Integer.toBinaryString(result));
+            System.out.println(Integer.toBinaryString(num));
             result ^= num;
+
         }
 
         return result;

@@ -34,10 +34,11 @@ public class Q1080 {
         int cnt = 0;
         for (int i = 0; i <= n - 3; i++) {
             for (int j = 0; j <= m - 3; j++) {
+                System.out.println(i+","+j);
                 if (arrA[i][j] != arrB[i][j]) {
                     //printMap(arrA);
                     trans(arrA, i, j);
-                   // printMap(arrA);
+                    // printMap(arrA);
                     cnt++;
                 }
             }

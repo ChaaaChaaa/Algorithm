@@ -26,10 +26,14 @@ public class Q39 {
             list.add(new ArrayList<>(tempList));
         } else {
             for (int i = start; i < nums.length; i++) {
+
                 tempList.add(nums[i]);
+                System.out.println("i : " + i + " start: " + start + " temp : " + tempList);
                 backTrack(list, tempList, nums, remain - nums[i], i);
                 tempList.remove(tempList.size() - 1);
             }
+            System.out.println();
+            System.out.println();
         }
     }
 }

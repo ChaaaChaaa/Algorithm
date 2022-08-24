@@ -3,6 +3,7 @@ package boj;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -13,7 +14,7 @@ public class Q6087 {
     private static int[][] dist;
     private static char[][] map;
     private static int H, W;
-    private static boolean[][] visited;
+    private static int result = Integer.MAX_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -43,7 +44,7 @@ public class Q6087 {
         }
 
         bfs(start, end);
-        System.out.println(dist[end.x][end.y] - 1);
+        System.out.println(result);
     }
 
     private static void bfs(Position start, Position end) {
@@ -55,12 +56,14 @@ public class Q6087 {
             Position now = queue.poll();
 
             if (dist[end.x][end.y] != 0) {
+                result = Math.min(result,dist[end.x][end.y]-1);
                 return;
             }
 
             for (int i = 0; i < 4; i++) {
                 int nx = dx[i] + now.x;
                 int ny = dy[i] + now.y;
+
 
                 while (isIn(nx, ny) && map[nx][ny] != '*') {
                     if (dist[nx][ny] == 0) {

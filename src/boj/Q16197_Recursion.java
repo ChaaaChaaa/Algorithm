@@ -19,7 +19,7 @@ public class Q16197_Recursion {
         n = Integer.parseInt(str[0]);
         m = Integer.parseInt(str[1]);
         map = new char[n + 2][m + 2];
-        ArrayList<coin> coins = new ArrayList<>();
+        ArrayList<Coin> coins = new ArrayList<>();
 
         for (int i = 0; i < n + 2; i++) {
             for (int j = 0; j < m + 2; j++) {
@@ -32,7 +32,7 @@ public class Q16197_Recursion {
             for (int j = 1; j < m + 1; j++) {
                 if (s[j - 1].charAt(0) == 'o') {
                     map[i][j] = '.';
-                    coins.add(new coin(i, j));
+                    coins.add(new Coin(i, j));
                 } else {
                     map[i][j] = s[j - 1].charAt(0);
                 }
@@ -48,15 +48,15 @@ public class Q16197_Recursion {
         }
     }
 
-    private static boolean exitTwoCoins(int count, ArrayList<coin> coins) {
+    private static boolean exitTwoCoins(int count, ArrayList<Coin> coins) {
         boolean one = false;
         boolean two = false;
 
-        if (coins.get(0).x < 0 || coins.get(0).y < 0) { // 첫번째 동전이 보드 밖으로
+        if (coins.get(0).x < 0 || coins.get(0).y < 0) {
             one = true;
         }
 
-        if (coins.get(1).x < 0 || coins.get(1).y < 0) { // 두번째 동전이 보드 밖으로
+        if (coins.get(1).x < 0 || coins.get(1).y < 0) {
             two = true;
         }
 
@@ -70,7 +70,7 @@ public class Q16197_Recursion {
         }
     }
 
-    static void backTracking(int count, ArrayList<coin> coins) {
+    static void backTracking(int count, ArrayList<Coin> coins) {
         if (count > 10) {
             return;
         }
@@ -80,22 +80,22 @@ public class Q16197_Recursion {
         }
 
         for (int i = 0; i < 4; i++) {
-            ArrayList<coin> temp = new ArrayList<>();
+            ArrayList<Coin> temp = new ArrayList<>();
             for (int j = 0; j < 2; j++) {
                 int nx = coins.get(j).x + dx[i];
                 int ny = coins.get(j).y + dy[i];
 
                 if (coins.get(j).x < 0) {
-                    temp.add(new coin(-1, -1));
+                    temp.add(new Coin(-1, -1));
                     break;
                 }
 
-                if (map[nx][ny] == '.' || map[nx][ny] == 'o') { //빈칸이거나 다른 동전이 있는경우 -> 움직여도 됨
-                    temp.add(new coin(nx, ny));
+                if (map[nx][ny] == '.' || map[nx][ny] == 'o') {
+                    temp.add(new Coin(nx, ny));
                 } else if (map[nx][ny] == 'X') { // 밖으로 나간 경우 -> -1값
-                    temp.add(new coin(-1, -1));
+                    temp.add(new Coin(-1, -1));
                 } else {  //움직일 수 없을때 -> 현상태 유지
-                    temp.add(new coin(coins.get(j).x, coins.get(j).y));
+                    temp.add(new Coin(coins.get(j).x, coins.get(j).y));
                 }
             }
             backTracking(count + 1, temp);
@@ -103,11 +103,11 @@ public class Q16197_Recursion {
     }
 }
 
-class coin {
+class Coin {
     int x;
     int y;
 
-    public coin(int x, int y) {
+    public Coin(int x, int y) {
         this.x = x;
         this.y = y;
     }

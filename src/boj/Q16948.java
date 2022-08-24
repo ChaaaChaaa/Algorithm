@@ -1,49 +1,76 @@
 package boj;
 
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 
 public class Q16948 {
-    private static final int[] dx = {-2,-2,0,0,2,2};
-    private static final int[] dy = {-1,1,-2,2,-1,1};
+    private static final int[] dr = {-2, -2, 0, 0, 2, 2};
+    private static final int[] dc = {-1, 1, -2, 2, -1, 1};
+    private static boolean[][] visit;
 
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int sx = sc.nextInt();
-        int sy = sc.nextInt();
-        int ex = sc.nextInt();
-        int ey = sc.nextInt();
 
-        int[][] distance = new int[n][n];
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        for(int i=0; i<n; i++){
-            Arrays.fill(distance[i],-1);
-        }
+        int mapSize = Integer.parseInt(br.readLine());
 
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(sx);
-        queue.add(sy);
-        distance[sx][sy] = 0;
+        visit = new boolean[mapSize][mapSize];
 
-        while (!queue.isEmpty()){
-            int x = queue.remove();
-            int y = queue.remove();
+        String[] s = br.readLine().split("\\s");
+        int startR = Integer.parseInt(s[0]);
+        int startC = Integer.parseInt(s[1]);
+        int endR = Integer.parseInt(s[2]);
+        int endC = Integer.parseInt(s[3]);
 
-            for(int k=0; k<6; k++){
-                int nx = x+dx[k];
-                int ny = y+dy[k];
-                if (0 <= nx && nx < n && 0 <= ny && ny < n) {
-                    if(distance[nx][ny] == -1){
-                        queue.add(nx);
-                        queue.add(ny);
-                        distance[nx][ny] = distance[x][y]+1;
-                    }
+        System.out.println(bfs(mapSize, startR, startC, endR, endC));
+
+    }
+
+    private static int bfs(int mapSize, int startR, int startC, int endR, int endC) {
+        Queue<ChessPosition> chessPositions = new LinkedList<>();
+        chessPositions.add(new ChessPosition(startR, startC, 0));
+        visit[startR][startC] = true;
+
+        while (!chessPositions.isEmpty()) {
+            ChessPosition chessPosition = chessPositions.poll();
+            int r = chessPosition.r;
+            int c = chessPosition.c;
+
+            if (r == endR && c == endC) {
+                return chessPosition.cnt;
+            }
+
+            for (int i = 0; i < 6; i++) {
+                int nr = dr[i] + r;
+                int nc = dc[i] + c;
+
+                if (!isWall(nr, nc, mapSize) || visit[nr][nc]) {
+                    continue;
                 }
+
+                visit[nr][nc] = true;
+                chessPositions.add(new ChessPosition(nr, nc, chessPosition.cnt + 1));
             }
         }
-        System.out.println(distance[ex][ey]);
+        return -1;
+    }
+
+    private static boolean isWall(int r, int c, int mapSize) {
+        return ((r >= 0 && r < mapSize) && (c >= 0 && c < mapSize));
+    }
+}
+
+class ChessPosition {
+    int r;
+    int c;
+    int cnt;
+
+    ChessPosition(int r, int c, int cnt) {
+        this.r = r;
+        this.c = c;
+        this.cnt = cnt;
     }
 }

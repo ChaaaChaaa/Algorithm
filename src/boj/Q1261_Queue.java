@@ -4,15 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-class Position {
-    int x;
-    int y;
 
-    public Position(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
 
 public class Q1261_Queue {
     private static final int[] dy = {0, 0, -1, 1};

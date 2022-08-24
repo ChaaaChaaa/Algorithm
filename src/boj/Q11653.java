@@ -12,7 +12,7 @@ public class Q11653 {
         int inputNum = Integer.parseInt(br.readLine());
         br.close();
 
-        IntegerFactorization integerFactorization = new IntegerFactorization(inputNum);
+        FactorizationInteger integerFactorization = new FactorizationInteger(inputNum);
 
         while (integerFactorization.getInputNum() != 1) {
 
@@ -22,14 +22,14 @@ public class Q11653 {
     }
 }
 
-class IntegerFactorization {
+class FactorizationInteger {
     private static final String NEW_LINE = "\n";
     private int i = 2;
 
     private int inputNum;
     private StringBuffer sb = new StringBuffer();
 
-    IntegerFactorization(int inputNum) {
+    FactorizationInteger(int inputNum) {
         this.inputNum = inputNum;
     }
 

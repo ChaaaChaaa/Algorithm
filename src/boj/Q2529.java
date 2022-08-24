@@ -1,99 +1,69 @@
 package boj;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Q2529 {
-    private static final int startNumber = 0;
-    private static final int maxLength = 20;
-    private static final String initString = "";
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+    public static int n;
+    public static char[] a;
+    public static ArrayList<String> ans = new ArrayList<String>();
+    public static boolean[] check = new boolean[10];
 
-        char[] inequalitySignArr = new char[maxLength];
-
-        for (int i = startNumber; i < n; i++) {
-            inequalitySignArr[i] = sc.next().toCharArray()[0];
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        n = Integer.parseInt(br.readLine());
+        a = new char[n];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < n; i++) {
+            a[i] = st.nextToken().charAt(0);
         }
 
+        go(0, "");
 
-        InequalitySign inequalitySign = new InequalitySign(inequalitySignArr, n);
-        inequalitySign.recursion(startNumber, initString);
-        System.out.println(inequalitySign.printTheBiggestNum());
-        System.out.println(inequalitySign.printTheSmallestNum());
-
-
-    }
-}
-
-class InequalitySign {
-    private static final char isLessThan = '<';
-    private static final char isGreaterThan = '>';
-    private static final char toChangeIntToChar = '0';
-    private static final int numOfZeroToNine = 10;
-    private static final int nextNumber = 1;
-    private static final int beforeNumber = 1;
-    private static final int startNumber = 0;
-    private static final int lastNumber = 9;
-
-    private char[] inequalitySignArr;
-    private int n;
-
-    InequalitySign(char[] inequalitySignArr, int n) {
-        this.inequalitySignArr = inequalitySignArr;
-        this.n = n;
+        Collections.sort(ans);
+        int m = ans.size();
+        System.out.println(ans.get(m - 1));
+        System.out.println(ans.get(0));
     }
 
-    private boolean[] isUsedNumber = new boolean[numOfZeroToNine];
-
-    private boolean isRightInequalityEquation(char x, char y, char op) {
-        if (op == isLessThan) {
+    static boolean good(char x, char y, char op) {
+        if (op == '<') {
             if (x > y) {
                 return false;
             }
         }
 
-        if (op == isGreaterThan) {
-            return x >= y;
+        if (op == '>') {
+            if (x < y) {
+                return false;
+            }
         }
 
         return true;
     }
 
-
-    private ArrayList<String> resultArrayList = new ArrayList<>();
-
-    void recursion(int index, String inequalityEquation) {
-        if (index == n + nextNumber) {
-            resultArrayList.add(inequalityEquation);
-            return;
+    static void go(int index, String num) {
+        if (index == n + 1) {
+            ans.add(num);
         }
 
-        for (int i = startNumber; i <= lastNumber; i++) {
-            if (isUsedNumber[i]) {
+        for (int i = 0; i <= 9; i++) {
+            if (check[i]) {
                 continue;
             }
-
-            if (index == startNumber || compareBeforeAndNextNum(index, inequalityEquation, i)) {
-                isUsedNumber[i] = true;
-                recursion(index + nextNumber, inequalityEquation + i);
-                isUsedNumber[i] = false;
+            if (index == 0 || good(num.charAt(index - 1), (char) (i + '0'), a[index])) {
+                check[i] = true;
+                go(index + 1, num + i);
+                check[i] = false;
             }
         }
     }
-
-    private boolean compareBeforeAndNextNum(int index, String num, int i) {
-        return isRightInequalityEquation(num.charAt(index - beforeNumber), (char) (i + toChangeIntToChar), inequalitySignArr[index - beforeNumber]);
-    }
-
-    String printTheBiggestNum() {
-        int resultArrayListSize = resultArrayList.size();
-        return resultArrayList.get(resultArrayListSize - beforeNumber);
-    }
-
-    String printTheSmallestNum() {
-        return resultArrayList.get(startNumber);
-    }
 }
+

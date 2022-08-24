@@ -1,47 +1,88 @@
 package boj;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Q16928 {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int [] dist = new int[101];
-        int [] next = new int[101]; //x에 도착한 이후에 가야할 곳
-        int n = sc.nextInt();
-        int m = sc.nextInt();
+    private static int[] map;
+    private static int current = 0;
+    private static boolean[] visit;
 
-        for(int i=1; i<=100; i++){
-            next[i] = i;
-            dist[i] = -1; //거리 -1로 초기화
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        map = new int[101]; //x에 도착한 이후에 가야할 곳
+
+
+        for (int i = 1; i <= 100; i++) {
+            map[i] = i;
         }
 
-        for(int k=0; k<n+m; k++){
-            int x = sc.nextInt(); //사다리
-            int y = sc.nextInt(); //뱀
-            next[x] = y;//뱀
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+
+        for (int k = 0; k < n + m; k++) {
+            st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken()); //사다리
+            int y = Integer.parseInt(st.nextToken()); //뱀
+            map[x] = y;//뱀
         }
 
-        dist[1] = 0;
+        System.out.println(bfs());
+    }
 
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(1);
+    private static int bfs() {
+        visit = new boolean[101];
+        Queue<UserPosition> queue = new LinkedList<>();
 
-        while (!queue.isEmpty()){
-            int x = queue.remove();
-            for(int i=1; i<=6; i++){
-                int y = x+i;
-                if(y>100){
+        visit[1] = true;
+        queue.add(new UserPosition(1, 0));
+
+        while (!queue.isEmpty()) {
+            UserPosition userPosition = queue.poll();
+            int cnt = userPosition.cnt;
+            int position = userPosition.position;
+
+            if (position == 100) {
+                current = cnt;
+                break;
+            }
+
+
+            for (int add = 1; add <= 6; add++) {
+                int next = position + add;
+                if (next > 100) {
+                    break;
+                }
+                if (visit[next]) {
                     continue;
                 }
-                y = next[y]; //다음칸
-                if(dist[y] == -1){ // 방문하지 않았으면
-                    dist[y] = dist[x] +1; //거리 구한다
-                    queue.add(y);
+
+                if (map[next] == 0) {
+                    queue.add(new UserPosition(map[next], cnt + 1));
+                    visit[next] = true;
+                } else {
+                    queue.add(new UserPosition(map[next], cnt + 1));
+                    visit[next] = true;
+                    visit[map[next]] = true;
                 }
             }
         }
-        System.out.println(dist[100]);
+        return current;
+    }
+}
+
+class UserPosition {
+    int position;
+    int cnt;
+
+    UserPosition(int position, int cnt) {
+        this.position = position;
+        this.cnt = cnt;
     }
 }
