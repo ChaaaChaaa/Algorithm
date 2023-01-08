@@ -20,19 +20,19 @@ public class Q1940 {
 
         Arrays.sort(arr);
 
-        int i = 0;
-        int j = n - 1;
+        int start = 0;
+        int end = n - 1;
         int count = 0;
 
-        while (i < j) {
-            if (arr[i] + arr[j] == m) {
+        while (start < end) {
+            if (arr[start] + arr[end] == m) {
                 count++;
-                i++;
-                j--;
-            } else if (arr[i] + arr[j] > m) {
-                j--;
-            } else if (arr[i] + arr[j] < m) {
-                i++;
+                start++;
+                end--;
+            } else if (arr[start] + arr[end] > m) {
+                end--;
+            } else if (arr[start] + arr[end] < m) {
+                start++;
             }
         }
 

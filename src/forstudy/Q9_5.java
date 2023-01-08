@@ -29,12 +29,12 @@ public class Q9_5 {
         distance[v] = 0;
         while (!priorityQueue.isEmpty()){
             Edge temp = priorityQueue.poll();
-            int now = temp.vex;
+            int nowVex = temp.vex;
             int nowCost = temp.cost;
-            if(nowCost>distance[now]){
+            if(nowCost>distance[nowVex]){
                 continue;
             }
-            for(Edge edge : graph.get(now)){
+            for(Edge edge : graph.get(nowVex)){
                 distance[edge.vex] = nowCost+edge.cost;
                 priorityQueue.offer(new Edge(edge.vex,nowCost+edge.cost));
             }
