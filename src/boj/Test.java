@@ -1,40 +1,81 @@
 package boj;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class Test {
-    public static void main(String[] args) {
-        int [] arr = {1,1,3,3,0,1,1};
-        Test test = new Test();
-        System.out.println(Arrays.toString(test.solution(arr)));
+    static boolean[] visited;
+    static ArrayList<Node1>[] A;
+    static int[] distance;
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        A = new ArrayList[n + 1];
+
+        for (int i = 1; i <= n; i++) {
+            A[i] = new ArrayList<>();
+        }
+
+        // 이유를 모르겠으나 while문 내부를 빠져나오지 못하는 듯함.
+        // 디버거를 돌려도 이유를 모르겠음
+        StringTokenizer st;
+        for (int i = 0; i <n; i++) {
+            st= new StringTokenizer(br.readLine());
+            int start = Integer.parseInt(st.nextToken());
+            int end = Integer.parseInt(st.nextToken());
+            while (true) {
+                int node = Integer.parseInt(st.nextToken());
+                int edge = Integer.parseInt(st.nextToken());
+                if (edge == -1)
+                    break;
+                A[start].add(new Node1(node, edge));
+            }
+        }
+        distance = new int[n+1];
+        visited = new boolean[n+1];
+        BFS(1);
+        int max = 1;
+        for(int i =2; i<=n; i++){
+            if(distance[max]<distance[i]){
+                max = i;
+            }
+        }
+        distance = new int[n+1];
+        visited = new boolean[n+1];
+        BFS(max);
+        Arrays.sort(distance);
+        System.out.println(distance[n]);
+
+
     }
-    public int[] solution(int []arr) {
-        Stack<Integer> stack = new Stack<>();
-        ArrayList<Integer> list = new ArrayList<>();
-
-        stack.push(arr[0]);
-
-        for(int i=1; i<arr.length; i++){
-            while(!stack.isEmpty()&&stack.peek() == arr[i]){
-                //System.out.println(stack.peek());
-                list.add(stack.peek());
-                stack.pop();
+    public static void BFS(int index){
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(index);
+        visited[index] = true;
+        while (!queue.isEmpty()){
+            int now_node = queue.poll();
+            for(Node1 i : A[now_node]){
+                int s = i.e;
+                int v = i.value;
+                if(!visited[s]){
+                    queue.offer(s);
+                    distance[s] = distance[now_node]+v;
+                }
             }
-            if(!stack.isEmpty()&&stack.peek() != arr[i]){
-                list.add(arr[i]);
-            }
-
-            stack.push(arr[i]);
         }
+    }
 
+}
 
-        int[] answer = new int[list.size()];
+class Node1 {
+    int e;
+    int value;
 
-        for(int i = 0; i<list.size(); i++){
-            answer[i] = list.get(i);
-        }
-
-
-        return answer;
+    Node1(int s, int v) {
+        this.e = s;
+        this.value = v;
     }
 }

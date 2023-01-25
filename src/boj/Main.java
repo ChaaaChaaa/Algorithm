@@ -1,61 +1,63 @@
 package boj;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
-public class Main {
-    static int [] arr;
-    static int n,m,cnt;
+class Main{
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private static boolean [][] visited;
+    private static int [] dx ={1,-1,0,0};
+    private static int [] dy = {0,0,1,-1};
+    private static int n,m;
 
-        n = Integer.parseInt(br.readLine());
-        m = Integer.parseInt(br.readLine());
-        arr = new int[n];
-        StringTokenizer st = new StringTokenizer(br.readLine());
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        n =sc.nextInt();
+        m = sc.nextInt();
+
+        int [][] arr = new int[n][m];
+        visited  = new boolean[n][m];
 
         for(int i=0; i<n; i++){
-            arr[i] = Integer.parseInt(st.nextToken());
+            String str = sc.nextLine();
+            for(int j=0; j<str.length(); j++){
+                arr[i][j] = str.charAt(j) - '0';
+            }
         }
 
-        Arrays.sort(arr);
+        bfs(arr);
+        System.out.println(arr[n-1][m-1]);
 
-        for(int i=0; i<n; i++){
-            twoPointer(i);
-        }
-
-        System.out.println(cnt);
     }
 
-    static void twoPointer(int fixIndex){
-        int start=0;
-        int end = n-1;
-        cnt = 0;
+    private static void bfs(int [][] arr){
+        Queue<Position> q = new LinkedList<>();
+        q.add(new Position(0,0));
+        visited[0][0] = true;
 
-        while(start<end){
-            if(start == fixIndex){
-                start++;
-            }else if(end == fixIndex){
-                end--;
-            }
-            else{
-                if(arr[start]+arr[end] == m){
-                    cnt++;
-                }
-                else if(arr[start]+arr[end]>m ){
-                    start--;
-                }else if(arr[start]+arr[end]<m){
-                    end--;
+        while(!q.isEmpty()){
+            Position temp = q.poll();
+
+            for(int i=0; i<4; i++){
+                int nx = dx[i]+temp.x;
+                int ny = dy[i]+temp.y;
+
+                if(nx>=0 && n>nx && ny>=0 && m>ny&& !visited[nx][ny] && arr[nx][ny] == 1){
+                    q.add(new Position(nx,ny));
+                    visited[nx][ny]=true;
+                    arr[nx][ny] = arr[temp.x][temp.y]+1;
                 }
             }
         }
     }
 }
 
+class Position111{
+    int x;
+    int y;
 
+    Position111(int x, int y){
+        this.x=x;
+        this.y=y;
+    }
+}
