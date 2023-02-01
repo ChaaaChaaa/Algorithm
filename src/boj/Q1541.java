@@ -12,7 +12,7 @@ public class Q1541 {
 
         for (String value : subtraction) {
             int temp = 0;
-            String[] addition = value.split("\\+");
+            String[] addition = value.split("[+]");
             for (String s : addition) {
                 temp += Integer.parseInt(s);
             }

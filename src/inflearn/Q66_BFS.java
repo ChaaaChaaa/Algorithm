@@ -33,6 +33,7 @@ public class Q66_BFS {
         Scanner sc = new Scanner(System.in);
         hang = sc.nextInt();
         yeol = sc.nextInt();
+
         board = new int[hang][yeol];
         spendTime = new int[hang][yeol];
 
