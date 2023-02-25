@@ -22,8 +22,8 @@ public class Q2252 {
         List<List<Integer>> list = new ArrayList<>();
         int [] indegree = new int[node+1];
 
-        for(int i=0; i<node+1; i++){
-            list.add(i, new ArrayList<>());
+        for(int i=0; i<=node; i++){
+            list.add(new ArrayList<>()); //방향 그래프를 구성하기 위해 사용
         }
 
         for(int i=0; i<edge; i++){
@@ -39,10 +39,10 @@ public class Q2252 {
     }
 
     private static void topologicalSort(List<List<Integer>> list, int [] indegree){
-        Queue<Integer> queue = new LinkedList<>();
-        Queue<Integer> result = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>(); //새로운 노드를 추가하기 위해 사용됩니다(indegree 배열을 사용하여 노드의 입력 개수를 추적합니다).
+        Queue<Integer> result = new LinkedList<>(); //위상 정렬된 노드 번호가 담겨 있음
 
-        for(int i=1; i<node+1; i++){
+        for(int i=1; i<=node; i++){
             if(indegree[i] == 0){
                 queue.offer(i);
             }

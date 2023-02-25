@@ -39,7 +39,7 @@ public class Q7576 {
         while(!queue.isEmpty()) {
             Tomato t = queue.remove();
 
-            int z = t.z; //면
+            int h = t.h; //면
             int x = t.x; //세로
             int y = t.y; //가로
 
@@ -47,17 +47,17 @@ public class Q7576 {
             for(int i=0;i<6;i++) {
                 int nx = x + dx[i]; //세로
                 int ny = y + dy[i]; //가로
-                int nz = z + dz[i]; //면
+                int nh = h + dz[i]; //면
 
                 //범위 안에서
-                if(nx>=0 && ny>=0 && nz>=0 && nx<n && ny<m && nz<h) {
+                if(nx>=0 && ny>=0 && nh>=0 && nx<n && ny<m && nh<h) {
                     //토마토가 안익었으면
-                    if(board[nz][nx][ny]==0) {
+                    if(board[nh][nx][ny]==0) {
                         //익은 토마토 추가
-                        queue.add(new Tomato(nz, nx, ny));
+                        queue.add(new Tomato(nh, nx, ny));
 
                         //익은 날자를 얻기위해 그 전 값에서 1 증가
-                        board[nz][nx][ny] = board[z][x][y] + 1;
+                        board[nh][nx][ny] = board[h][x][y] + 1;
                     }
                 }
             }
@@ -85,12 +85,12 @@ public class Q7576 {
 }
 
 class Tomato {
+    int h;
     int x;
     int y;
-    int z;
 
-    public Tomato(int z, int x, int y) {
-        this.z = z;
+    public Tomato(int h, int x, int y) {
+        this.h = h;
         this.x = x;
         this.y = y;
     }
